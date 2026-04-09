@@ -1,0 +1,297 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>联系我们 · 太一海洋</title>
+  <link rel="stylesheet" href="assets/styles.css"/>
+</head>
+<body>
+
+<!-- 导航栏 -->
+<header class="nav">
+  <div class="wrap">
+    <a class="brand" href="index.html" data-nav>
+      <span>
+        <img src="assets/images/logo.png" alt="TAIYI MARINE" style="width: auto; height: 30px; object-fit: cover;">
+      </span> 
+      <span>
+        <img src="assets/images/company-name.png" alt="TAIYI MARINE" style="width: auto; height: 30px; object-fit: cover;">
+      </span>
+    </a>
+
+    <nav class="navlinks" aria-label="主导航">
+      <a href="index.html" data-nav data-translate="nav-home">首页</a>
+      <a href="products.html" data-nav data-translate="nav-products">产品</a>
+      <a href="technology.html" data-nav data-translate="nav-technology">技术优势</a>
+      <a href="solutions.html" data-nav data-translate="nav-solutions">解决方案</a>
+      <a href="cases.html" data-nav data-translate="nav-cases">案例</a>
+      <a href="news.html" data-nav data-translate="nav-news">新闻</a>
+      <a href="contact.html" data-nav class="active" data-translate="nav-contact">联系我们</a>
+    </nav>
+
+    <div class="navcta">
+      <!-- 语言切换器 -->
+      <div class="lang-switcher">
+        <button class="lang-btn active" data-lang="zh">中文</button>
+        <span>/</span>
+        <button class="lang-btn" data-lang="en">EN</button>
+      </div>
+    </div>
+  </div>
+
+  <div class="mobile" data-mobile>
+    <div class="row">
+      <a href="index.html" data-nav data-translate="nav-home">首页</a>
+      <a href="products.html" data-nav data-translate="nav-products">产品</a>
+      <a href="technology.html" data-nav data-translate="nav-technology">技术优势</a>
+      <a href="solutions.html" data-nav data-translate="nav-solutions">解决方案</a>
+      <a href="cases.html" data-nav data-translate="nav-cases">案例</a>
+      <a href="news.html" data-nav data-translate="nav-news">新闻</a>
+      <a href="contact.html" data-nav class="active" data-translate="nav-contact">联系我们</a>
+    </div>
+  </div>
+</header>
+
+<main id="main">
+  <!-- 顶部大图 -->
+  <div class="top-page-image">
+    <img src="assets/images/contact-banner.jpg" 
+         alt="联系我们">
+  </div>
+  
+  <!-- 联系表单和公司信息 -->
+  <section class="section alt">
+    <div class="container">
+      <div class="header reveal">
+        <h2 data-translate="contact-title">联系我们</h2>
+        <p data-translate="contact-desc">提交需求，我们将根据船型、功率、航速目标、运营场景为您提供专业的电动化方案建议。</p>
+      </div>
+
+      <div class="grid2">
+        <!-- 左侧：需求表单 -->
+        <div class="card reveal">
+          <div class="card-content">
+            <h3 style="margin-top:0;color:var(--blue-900);" data-translate="contact-form-title">需求表单</h3>
+            <p style="color:var(--text-muted);margin-bottom:24px;" data-translate="contact-form-desc">请填写以下信息，我们的专家团队将为您提供定制化方案</p>
+            
+            <form class="form" id="contactForm">
+              <div class="form-group">
+                <label class="form-label" data-translate="contact-form-name">您的姓名 *</label>
+                <input class="input" required placeholder="请输入您的姓名" name="name" data-translate="contact-form-name-ph">
+              </div>
+              
+              <div class="form-group">
+                <label class="form-label" data-translate="contact-form-phone">联系电话 *</label>
+                <input class="input" required placeholder="请输入联系电话" name="phone" type="tel" data-translate="contact-form-phone-ph">
+              </div>
+              
+              <div class="form-group">
+                <label class="form-label" data-translate="contact-form-email">电子邮箱 *</label>
+                <input class="input" required placeholder="请输入电子邮箱" name="email" type="email" data-translate="contact-form-email-ph">
+              </div>
+              
+              <div class="form-group">
+                <label class="form-label" data-translate="contact-form-company">公司/单位</label>
+                <input class="input" placeholder="请输入公司或单位名称" name="company" data-translate="contact-form-company-ph">
+              </div>
+              
+              <div class="grid2" style="gap:16px;">
+                <div class="form-group">
+                  <label class="form-label" data-translate="contact-form-boat">船型信息</label>
+                  <input class="input" placeholder="船型/吨位/长度" name="boatInfo" data-translate="contact-form-boat-ph">
+                </div>
+                
+                <div class="form-group">
+                  <label class="form-label" data-translate="contact-form-power">功率需求</label>
+                  <select class="input" name="power" style="color:var(--text-main);">
+                    <option value="" disabled selected data-translate="contact-form-power-ph">请选择功率需求</option>
+                    <option value="1kW" data-translate="contact-form-power-1">≤1kW</option>
+                    <option value="1-10kW" data-translate="contact-form-power-2">1-10kW</option>
+                    <option value="10-50kW" data-translate="contact-form-power-3">10-50kW</option>
+                    <option value="50-100kW" data-translate="contact-form-power-4">50-100kW</option>
+                    <option value="100kW+" data-translate="contact-form-power-5">100kW以上</option>
+                  </select>
+                </div>
+              </div>
+              
+              <div class="form-group">
+                <label class="form-label" data-translate="contact-form-requirements">详细需求 *</label>
+                <textarea class="textarea" required placeholder="请详细描述您的需求：航速、续航、应用场景、是否改造、是否需要自动驾驶等" name="requirements" data-translate="contact-form-requirements-ph"></textarea>
+              </div>
+              
+              <button class="btn primary" type="submit" style="margin-top:12px;justify-content:center;width:100%;" data-translate="contact-form-submit">提交需求</button>
+            </form>
+          </div>
+        </div>
+
+        <!-- 右侧：公司信息 -->
+        <div class="card reveal">
+          <div class="card-content">
+            <h3 style="margin-top:0;color:var(--blue-900);" data-translate="contact-info-title">联系我们</h3>
+            <p style="color:var(--text-muted);margin-bottom:24px;" data-translate="contact-info-desc">获取最新产品信息和技术支持</p>
+            
+            <div class="company-info-container">
+              <!-- 公司信息 -->
+              <div class="company-info-section">
+                <h4 data-translate="contact-info-company-title">公司信息</h4>
+                <div class="contact-details">
+                  <div class="contact-item">
+                    <svg class="contact-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                      <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/>
+                      <circle cx="12" cy="7" r="4"/>
+                    </svg>
+                    <div class="contact-text">
+                      <strong data-translate="contact-info-company">深圳太一海洋智能科技有限公司</strong>
+                    </div>
+                  </div>
+                  
+                  <div class="contact-item">
+                    <svg class="contact-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                      <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/>
+                    </svg>
+                    <div class="contact-text">
+                      <strong data-translate="contact-info-phone">电话</strong>
+                      <p>13552621920</p>
+                    </div>
+                  </div>
+                  
+                  <div class="contact-item">
+                    <svg class="contact-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                      <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/>
+                      <polyline points="22,6 12,13 2,6"/>
+                    </svg>
+                    <div class="contact-text">
+                      <strong data-translate="contact-info-email">邮箱</strong>
+                      <p>browningwan@sina.cn</p>
+                    </div>
+                  </div>
+                  
+                  <div class="contact-item">
+                    <svg class="contact-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                      <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/>
+                      <circle cx="12" cy="10" r="3"/>
+                    </svg>
+                    <div class="contact-text">
+                      <strong data-translate="contact-info-address">地址</strong>
+                      <p data-translate="footer-address-val">深圳市宝安区西乡街道蚝业社区大铲湾蓝色未来科技园二期1栋202</p>
+                    </div>
+                  </div>
+                  
+                  <div class="contact-item">
+                    <svg class="contact-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                      <rect x="3" y="4" width="18" height="16" rx="2" ry="2"/>
+                      <line x1="16" y1="2" x2="16" y2="6"/>
+                      <line x1="8" y1="2" x2="8" y2="6"/>
+                      <line x1="3" y1="10" x2="21" y2="10"/>
+                    </svg>
+                    <div class="contact-text">
+                      <strong data-translate="contact-info-worktime">工作时间</strong>
+                      <p data-translate="contact-info-worktime-val">周一至周五 9:00-18:00</p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              
+              <!-- 关注我们 -->
+              <div class="follow-section">
+                <h4 data-translate="contact-follow-title">关注我们</h4>
+                <div class="qr-code">
+                  <span data-translate="contact-follow-qrcode">微信公众号二维码（待定）</span>
+                </div>
+                <p style="margin:0;color:var(--blue-800);font-weight:600;" data-translate="contact-follow-scan">扫码关注微信公众号</p>
+                <p style="margin:8px 0 0;color:var(--muted);font-size:14px;" data-translate="contact-follow-desc">获取最新产品信息和技术动态</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 服务流程 -->
+  <section class="section">
+    <div class="container">
+      <div class="header reveal">
+        <h2 data-translate="contact-process-title">服务流程</h2>
+        <p data-translate="contact-process-desc">从需求沟通到项目交付的完整服务链路</p>
+      </div>
+
+      <div class="grid3">
+        <div class="process-step reveal">
+          <div class="step-number">1</div>
+          <h4 class="step-title" data-translate="contact-process-1">需求沟通</h4>
+          <p class="step-desc" data-translate="contact-process-1-desc">详细了解您的船型、功率需求、航速目标与应用场景</p>
+        </div>
+        
+        <div class="process-step reveal">
+          <div class="step-number">2</div>
+          <h4 class="step-title" data-translate="contact-process-2">方案设计</h4>
+          <p class="step-desc" data-translate="contact-process-2-desc">定制化电动化方案设计，包含三电匹配与系统集成方案</p>
+        </div>
+        
+        <div class="process-step reveal">
+          <div class="step-number">3</div>
+          <h4 class="step-title" data-translate="contact-process-3">实施交付</h4>
+          <p class="step-desc" data-translate="contact-process-3-desc">产品交付、安装调试、操作培训与技术支持</p>
+        </div>
+      </div>
+      
+      <div class="grid3" style="margin-top:24px;">
+        <div class="process-step reveal">
+          <div class="step-number">4</div>
+          <h4 class="step-title" data-translate="contact-process-4">测试验证</h4>
+          <p class="step-desc" data-translate="contact-process-4-desc">实船性能测试，确保满足设计要求与安全标准</p>
+        </div>
+        
+        <div class="process-step reveal">
+          <div class="step-number">5</div>
+          <h4 class="step-title" data-translate="contact-process-5">优化调整</h4>
+          <p class="step-desc" data-translate="contact-process-5-desc">根据测试结果进行系统优化，实现最佳性能表现</p>
+        </div>
+        
+        <div class="process-step reveal">
+          <div class="step-number">6</div>
+          <h4 class="step-title" data-translate="contact-process-6">持续服务</h4>
+          <p class="step-desc" data-translate="contact-process-6-desc">提供定期维护、远程支持与系统升级服务</p>
+        </div>
+      </div>
+
+      <div style="text-align:center;margin-top:40px;" class="reveal">
+        <a class="btn primary" href="contact.html" data-nav style="padding:14px 32px;" data-translate="contact-start-project">开始您的项目</a>
+      </div>
+    </div>
+  </section>
+</main>
+
+<!-- 页脚 -->
+<footer class="footer">
+  <div class="cols">
+    <div>
+      <h4 data-translate="footer-company">深圳太一海洋智能科技有限公司</h4>
+      <p data-translate="footer-slogan">驰骋蓝海 · 智享自由</p>
+      <p data-translate="footer-desc">电动推进 · CFD/EFD · AI 优化 · 自动驾驶 · 无人船</p>
+    </div>
+    <div>
+      <h4 data-translate="footer-quick">快速入口</h4>
+      <p><a href="products.html" data-nav data-translate="nav-products">产品</a></p>
+      <p><a href="technology.html" data-nav data-translate="nav-technology">技术优势</a></p>
+      <p><a href="solutions.html" data-nav data-translate="nav-solutions">解决方案</a></p>
+      <p><a href="cases.html" data-nav data-translate="nav-cases">案例</a></p>
+    </div>
+    <div>
+      <h4 data-translate="footer-contact">联系</h4>
+      <p><span data-translate="footer-phone">电话</span>：13552621920</p>
+      <p><span data-translate="footer-email">邮箱</span>：browningwan@gmail.com</p>
+      <p><span data-translate="footer-address">地址</span>：<span data-translate="footer-address-val">深圳市宝安区西乡街道蚝业社区大铲湾蓝色未来科技园二期1栋202</span></p>
+    </div>
+  </div>
+
+  <div class="sub">
+    <span>© <span id="y"></span> Taiyi Ocean <span data-translate="footer-company">深圳太一海洋智能科技有限公司</span></span>
+  </div>
+</footer>
+
+<script src="assets/app.js"></script>
+</body>
+</html>

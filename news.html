@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>新闻中心 · 太一海洋</title>
+  <link rel="stylesheet" href="assets/styles.css"/>
+</head>
+<body>
+
+<header class="nav">
+  <div class="wrap">
+    <!-- 左侧品牌Logo -->
+    <div class="brand">
+      <span>
+        <img src="assets/images/logo.png" alt="TAIYI MARINE" style="width: auto; height: 30px; object-fit: cover;">
+      </span> 
+      <span>
+        <img src="assets/images/company-name.png" alt="TAIYI MARINE" style="width: auto; height: 30px; object-fit: cover;">
+      </span>
+    </div>
+    
+    <!-- 中间导航链接 -->
+    <nav class="navlinks" aria-label="主导航">
+      <a href="index.html" data-nav data-translate="nav-home">首页</a>
+      <a href="products.html" data-nav data-translate="nav-products">产品</a>
+      <a href="technology.html" data-nav data-translate="nav-technology">技术优势</a>
+      <a href="solutions.html" data-nav data-translate="nav-solutions">解决方案</a>
+      <a href="cases.html" data-nav data-translate="nav-cases">案例</a>
+      <a href="news.html" data-nav class="active" data-translate="nav-news">新闻</a>
+      <a href="contact.html" data-nav data-translate="nav-contact">联系我们</a>
+    </nav>
+    
+    <!-- 右侧功能区域 -->
+    <div class="navcta">
+      <div class="lang-switcher">
+        <button class="lang-btn active" data-lang="zh">中文</button><span>/</span><button class="lang-btn" data-lang="en">EN</button>
+      </div>
+    </div>
+    
+    <!-- 移动端汉堡菜单按钮 -->
+    <button class="burger" aria-label="打开菜单">
+      <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <path d="M3 12h18M3 6h18M3 18h18"/>
+      </svg>
+    </button>
+  </div>
+  
+  <!-- 移动端菜单 -->
+  <div class="mobile" data-mobile>
+    <div class="row">
+      <a href="index.html" data-nav data-translate="nav-home">首页</a>
+      <a href="products.html" data-nav data-translate="nav-products">产品</a>
+      <a href="technology.html" data-nav data-translate="nav-technology">技术优势</a>
+      <a href="solutions.html" data-nav data-translate="nav-solutions">解决方案</a>
+      <a href="cases.html" data-nav data-translate="nav-cases">案例</a>
+      <a href="news.html" data-nav class="active" data-translate="nav-news">新闻</a>
+      <a href="contact.html" data-nav data-translate="nav-contact">联系我们</a>
+    </div>
+  </div>
+</header>
+
+<main id="main">
+  <div class="top-page-image"><img src="assets/images/news-banner.jpg" alt="新闻中心"></div>
+
+  <!-- 新闻列表 -->
+  <section class="section alt">
+    <div class="container">
+      <div class="header reveal">
+        <h2 data-translate="news-title">新闻中心</h2>
+        <p data-translate="news-desc">了解太一海洋最新动态、技术进展和行业资讯</p>
+      </div>
+      
+      <div class="news-grid">
+        <!-- 新闻 1 -->
+        <a href="#" class="news-item reveal" data-nav>
+          <!-- 左侧图片 -->
+          <div class="news-thumb">
+             <img src="assets/images/中小功率船舶电动舷外机.jpg" alt="News Image">
+          </div>
+          <!-- 右侧内容 -->
+          <div class="news-content">
+            <div class="news-meta">
+              <span class="news-date">2024-03-15</span>
+              <span class="news-category" data-translate="news-category-tech">技术突破</span>
+            </div>
+            <h3 data-translate="news-title-1">太一海洋发布新一代高效电动舷外机</h3>
+            <div class="news-excerpt" data-translate="news-excerpt-1">太一海洋近日成功研发并推出新一代高效电动舷外机系列产品。</div>
+            <div class="news-tags">
+              <span class="news-tag" data-translate="news-tag-product">电动外机</span>
+              <span class="news-tag" data-translate="news-tag-tech">技术创新</span>
+            </div>
+          </div>
+        </a>
+        
+        <!-- 新闻 2 -->
+        <a href="#" class="news-item reveal" data-nav>
+          <div class="news-thumb"><img src="assets/images/船体设计.png" alt="News Image"></div>
+          <div class="news-content">
+            <div class="news-meta"><span class="news-date">2024-02-28</span><span class="news-category" data-translate="news-category-case">成功案例</span></div>
+            <h3 data-translate="news-title-2">太一海洋为西湖景区提供电动观光船改造方案</h3>
+            <div class="news-excerpt" data-translate="news-excerpt-2">杭州西湖景区与太一海洋合作，完成首批10艘观光船电动化改造。</div>
+            <div class="news-tags"><span class="news-tag" data-translate="news-tag-culture">文旅船</span><span class="news-tag" data-translate="news-tag-retrofit">改造案例</span></div>
+          </div>
+        </a>
+        
+        <!-- 新闻 3 -->
+        <a href="#" class="news-item reveal" data-nav>
+          <div class="news-thumb"><img src="https://images.unsplash.com/photo-1551818255-e6e10975bc17?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=80" alt="News Image"></div>
+          <div class="news-content">
+            <div class="news-meta"><span class="news-date">2024-02-10</span><span class="news-category" data-translate="news-category-industry">行业动态</span></div>
+            <h3 data-translate="news-title-3">船舶电动化趋势加速，太一海洋受邀参加国际海事论坛</h3>
+            <div class="news-excerpt" data-translate="news-excerpt-3">在近日举办的国际海事技术论坛上，太一海洋技术总监分享了公司最新成果。</div>
+            <div class="news-tags"><span class="news-tag" data-translate="news-tag-forum">行业论坛</span></div>
+          </div>
+        </a>
+      </div>
+      
+      <!-- 底部提示 -->
+      <div class="news-end-indicator reveal"><span data-translate="news-end">已显示全部内容</span></div>
+
+      <!-- 订阅 -->
+      <section class="section" style="padding-top: 0; padding-bottom: 60px;">
+        <div class="container">
+          <div class="reveal" style="text-align: center; padding: 36px; border-radius: var(--radius); background: white; border: 2px solid rgba(93, 161, 255, 0.1); box-shadow: var(--shadow-hover); max-width: 650px; margin: 0 auto;">
+            <div style="margin-bottom: 28px;">
+              <h3 style="margin-top: 0; color: var(--blue-900); margin-bottom: 10px; font-size: 22px;" data-translate="news-subscribe-title">订阅新闻动态</h3>
+              <p style="color: var(--text-muted); font-size: 16px; line-height: 1.6;" data-translate="news-subscribe-desc">获取太一海洋最新产品信息和技术动态</p>
+            </div>
+            <form id="newsletterForm">
+              <div style="display: flex; gap: 12px; margin-bottom: 20px;">
+                <input type="email" placeholder="请输入您的邮箱" required style="flex: 1; padding: 15px 18px; border-radius: 12px; border: 2px solid rgba(93, 161, 255, 0.2); background: white; font-size: 16px;" data-translate="news-subscribe-placeholder">
+                <button type="submit" class="btn primary" style="padding: 15px 28px; font-size: 16px; white-space: nowrap;" data-translate="btn-subscribe">立即订阅</button>
+              </div>
+              <p style="font-size: 13px; color: var(--text-muted); line-height: 1.6; margin: 0; opacity: 0.8;" data-translate="news-subscribe-privacy">我们尊重您的隐私，不会共享您的信息</p>
+            </form>
+          </div>
+        </div>
+      </section>
+    </div>
+  </section>
+</main>
+
+<footer class="footer">
+  <div class="cols">
+    <div>
+      <h4 data-translate="footer-company">深圳太一海洋智能科技有限公司</h4>
+      <p data-translate="footer-slogan">驰骋蓝海 · 智享自由</p>
+      <p data-translate="footer-desc">电动推进 · CFD/EFD · AI 优化 · 自动驾驶 · 无人船</p>
+    </div>
+    <div>
+      <h4 data-translate="footer-quick">快速入口</h4>
+      <p><a href="products.html" data-nav data-translate="nav-products">产品</a></p>
+      <p><a href="technology.html" data-nav data-translate="nav-technology">技术优势</a></p>
+      <p><a href="cases.html" data-nav data-translate="nav-cases">案例</a></p>
+      <a href="contact.html" data-nav data-translate="nav-contact">联系我们</a>
+    </div>
+    <div>
+      <h4 data-translate="footer-contact">联系</h4>
+      <p><span data-translate="footer-phone">电话</span>：13552621920</p>
+      <p><span data-translate="footer-email">邮箱</span>：browningwan@gmail.com</p>
+      <p><span data-translate="footer-address">地址</span>：<span data-translate="footer-address-val">深圳市宝安区西乡街道蚝业社区大铲湾蓝色未来科技园二期1栋202</span></p>
+  </div>
+  <div class="sub"><span>© <span id="y"></span> Taiyi Ocean <span data-translate="footer-company">深圳太一海洋智能科技有限公司</span></span></div>
+</footer>
+<script src="assets/app.js"></script>
+</body>
+</html>
