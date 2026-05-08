@@ -4,6 +4,9 @@
   <meta charset="UTF-8"/>
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>技术优势 · 太一海洋</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Manrope:wght@400;600;700;800&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="assets/styles.css"/>
 </head>
 <body>
@@ -13,10 +16,10 @@
   <div class="wrap">
     <a class="brand" href="index.html" data-nav>
       <span>
-        <img src="assets/images/logo.png" alt="TAIYI MARINE" style="width: auto; height: 30px; object-fit: cover;">
-      </span> 
+        <img src="assets/images/logo.png" alt="TAIYI MARINE" class="brand-logo-img">
+      </span>
       <span>
-        <img src="assets/images/company-name.png" alt="TAIYI MARINE" style="width: auto; height: 30px; object-fit: cover;">
+        <img src="assets/images/company-name.png" alt="TAIYI MARINE" class="brand-logo-img">
       </span>
     </a>
 
@@ -37,6 +40,9 @@
         <span>/</span>
         <button class="lang-btn" data-lang="en">EN</button>
       </div>
+      <button class="burger" aria-label="Toggle Menu">
+        <svg viewBox="0 0 24 24" width="24" height="24" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"><line x1="3" y1="12" x2="21" y2="12"></line><line x1="3" y1="6" x2="21" y2="6"></line><line x1="3" y1="18" x2="21" y2="18"></line></svg>
+      </button>
     </div>
   </div>
 
@@ -56,14 +62,14 @@
 <main id="main">
   <!-- 顶部大图 -->
   <div class="top-page-image">
-    <img src="https://images.unsplash.com/photo-1580983218765-f663bec07b37?ixlib=rb-1.2.1&auto=format&fit=crop&w=1950&q=80" 
-         alt="技术优势">
+    <img src="assets/images/cases-banner.jpg" alt="技术优势">
   </div>
 
   <!-- 船舶性能评估方法 -->
   <section class="section alt">
     <div class="container">
       <div class="header reveal">
+        <span class="kicker" data-translate="tech-eval-kicker">Performance Evaluation</span>
         <h2 data-translate="tech-eval-title">船舶性能评估方法</h2>
         <p data-translate="tech-eval-desc">基于先进计算方法的船舶综合性能评估体系</p>
       </div>
@@ -84,13 +90,12 @@
         </div>
         <div class="media reveal">
           <div class="media-placeholder">
-            <img src="assets/images/性能评估.png" 
-                 alt="性能评估" style="width: 100%; height: 100%; object-fit: cover;">
+            <img src="assets/images/性能评估.png" alt="性能评估" class="img-fill">
           </div>
         </div>
       </div>
 
-      <div class="grid3" style="margin-top:32px">
+      <div class="grid3 mt-8">
         <div class="card reveal">
           <h3 data-translate="tech-eval-2">运动学求解</h3>
           <p data-translate="tech-eval-2-desc">基于六自由度运动方程，精确计算船舶在各种海况下的运动响应。</p>
@@ -111,6 +116,7 @@
   <section class="section">
     <div class="container">
       <div class="header reveal">
+        <span class="kicker" data-translate="tech-cfd-kicker">CFD / EFD &amp; AI</span>
         <h2 data-translate="tech-cfd-title">CFD / EFD 技术与 AI 融合</h2>
         <p data-translate="tech-cfd-desc">计算流体力学与实验流体力学相结合，AI技术赋能优化设计</p>
       </div>
@@ -145,17 +151,15 @@
         </div>
       </div>
 
-      <div class="grid2" style="margin-top:32px">
+      <div class="grid2 mt-8">
         <div class="media reveal">
           <div class="media-placeholder">
-            <img src="assets/images/CFD.png" 
-                 alt="CFD分析" style="width: 100%; height: 100%; object-fit: cover;">
+            <img src="assets/images/CFD.png" alt="CFD分析" class="img-fill">
           </div>
         </div>
         <div class="media reveal">
           <div class="media-placeholder">
-            <img src="assets/images/Altair Activate.png" 
-                 alt="Altair Activate" style="width: 100%; height: 100%; object-fit: cover;">
+            <img src="assets/images/Altair Activate.png" alt="Altair Activate" class="img-fill">
           </div>
         </div>
       </div>
@@ -166,6 +170,7 @@
   <section class="section alt">
     <div class="container">
       <div class="header reveal">
+        <span class="kicker" data-translate="tech-control-kicker">AI Control Surface</span>
         <h2 data-translate="tech-control-title">基于 AI 的控制面装置设计</h2>
         <p data-translate="tech-control-desc">智能化控制面参数优化与翼型库管理</p>
       </div>
@@ -189,12 +194,11 @@
           </div>
         </div>
       </div>
-      
-      <div class="grid2" style="margin-top:32px">
+
+      <div class="grid2 mt-8">
         <div class="media reveal">
           <div class="media-placeholder">
-            <img src="assets/images/MCP.png" 
-                 alt="基于MCP的AI智能控制技术" style="width: 100%; height: 100%; object-fit: cover;">
+            <img src="assets/images/MCP.png" alt="基于MCP的AI智能控制技术" class="img-fill">
           </div>
         </div>
         <div class="card reveal">
@@ -214,6 +218,7 @@
   <section class="section">
     <div class="container">
       <div class="header reveal">
+        <span class="kicker" data-translate="tech-motor-kicker">Motor &amp; Drive</span>
         <h2 data-translate="tech-motor-title">电机设计与电机驱动设计</h2>
         <p data-translate="tech-motor-desc">面向海洋环境的电机系统设计与驱动技术</p>
       </div>
@@ -248,7 +253,7 @@
         </div>
       </div>
 
-      <div class="grid2" style="margin-top:32px">
+      <div class="grid2 mt-8">
         <div class="card reveal">
           <h3 data-translate="tech-motor-4">热管理系统</h3>
           <p data-translate="tech-motor-4-desc">高效热设计确保电机在长时间高负载下稳定运行。</p>
@@ -275,6 +280,7 @@
   <section class="section alt">
     <div class="container">
       <div class="header reveal">
+        <span class="kicker" data-translate="tech-intelligent-kicker">Intelligent Control</span>
         <h2 data-translate="tech-intelligent-title">智能控制与系统集成</h2>
         <p data-translate="tech-intelligent-desc">先进的船舶控制系统与集成技术</p>
       </div>
@@ -309,7 +315,7 @@
         </div>
       </div>
 
-      <div style="margin-top:32px; text-align: center;" class="reveal">
+      <div class="reveal mt-8 text-center">
         <a class="btn primary" href="contact.html" data-nav data-translate="btn-contact">申请技术交流</a>
       </div>
     </div>

@@ -13,10 +13,10 @@
   <div class="wrap">
     <a class="brand" href="index.html" data-nav>
       <span>
-        <img src="assets/images/logo.png" alt="TAIYI MARINE" style="width: auto; height: 30px; object-fit: cover;">
-      </span> 
+        <img src="assets/images/logo.png" alt="TAIYI MARINE" class="brand-logo-img">
+      </span>
       <span>
-        <img src="assets/images/company-name.png" alt="TAIYI MARINE" style="width: auto; height: 30px; object-fit: cover;">
+        <img src="assets/images/company-name.png" alt="TAIYI MARINE" class="brand-logo-img">
       </span>
     </a>
 
@@ -72,8 +72,8 @@
         <!-- 左侧：需求表单 -->
         <div class="card reveal">
           <div class="card-content">
-            <h3 style="margin-top:0;color:var(--blue-900);" data-translate="contact-form-title">需求表单</h3>
-            <p style="color:var(--text-muted);margin-bottom:24px;" data-translate="contact-form-desc">请填写以下信息，我们的专家团队将为您提供定制化方案</p>
+            <h3 class="mt-0 text-blue-900" data-translate="contact-form-title">需求表单</h3>
+            <p class="text-muted mb-6" data-translate="contact-form-desc">请填写以下信息，我们的专家团队将为您提供定制化方案</p>
             
             <form class="form" id="contactForm">
               <div class="form-group">
@@ -96,7 +96,7 @@
                 <input class="input" placeholder="请输入公司或单位名称" name="company" data-translate="contact-form-company-ph">
               </div>
               
-              <div class="grid2" style="gap:16px;">
+              <div class="grid2 gap-4">
                 <div class="form-group">
                   <label class="form-label" data-translate="contact-form-boat">船型信息</label>
                   <input class="input" placeholder="船型/吨位/长度" name="boatInfo" data-translate="contact-form-boat-ph">
@@ -104,7 +104,7 @@
                 
                 <div class="form-group">
                   <label class="form-label" data-translate="contact-form-power">功率需求</label>
-                  <select class="input" name="power" style="color:var(--text-main);">
+                  <select class="input text-main" name="power">
                     <option value="" disabled selected data-translate="contact-form-power-ph">请选择功率需求</option>
                     <option value="1kW" data-translate="contact-form-power-1">≤1kW</option>
                     <option value="1-10kW" data-translate="contact-form-power-2">1-10kW</option>
@@ -120,7 +120,7 @@
                 <textarea class="textarea" required placeholder="请详细描述您的需求：航速、续航、应用场景、是否改造、是否需要自动驾驶等" name="requirements" data-translate="contact-form-requirements-ph"></textarea>
               </div>
               
-              <button class="btn primary" type="submit" style="margin-top:12px;justify-content:center;width:100%;" data-translate="contact-form-submit">提交需求</button>
+              <button class="btn primary mt-3 btn-block" type="submit" data-translate="contact-form-submit">提交需求</button>
             </form>
           </div>
         </div>
@@ -128,8 +128,8 @@
         <!-- 右侧：公司信息 -->
         <div class="card reveal">
           <div class="card-content">
-            <h3 style="margin-top:0;color:var(--blue-900);" data-translate="contact-info-title">联系我们</h3>
-            <p style="color:var(--text-muted);margin-bottom:24px;" data-translate="contact-info-desc">获取最新产品信息和技术支持</p>
+            <h3 class="mt-0 text-blue-900" data-translate="contact-info-title">联系我们</h3>
+            <p class="text-muted mb-6" data-translate="contact-info-desc">获取最新产品信息和技术支持</p>
             
             <div class="company-info-container">
               <!-- 公司信息 -->
@@ -199,8 +199,8 @@
                 <div class="qr-code">
                   <span data-translate="contact-follow-qrcode">微信公众号二维码（待定）</span>
                 </div>
-                <p style="margin:0;color:var(--blue-800);font-weight:600;" data-translate="contact-follow-scan">扫码关注微信公众号</p>
-                <p style="margin:8px 0 0;color:var(--muted);font-size:14px;" data-translate="contact-follow-desc">获取最新产品信息和技术动态</p>
+                <p class="mb-0 text-blue-800 font-semibold" data-translate="contact-follow-scan">扫码关注微信公众号</p>
+                <p class="mt-2 text-muted text-xs" data-translate="contact-follow-desc">获取最新产品信息和技术动态</p>
               </div>
             </div>
           </div>
@@ -237,7 +237,7 @@
         </div>
       </div>
       
-      <div class="grid3" style="margin-top:24px;">
+      <div class="grid3 mt-6">
         <div class="process-step reveal">
           <div class="step-number">4</div>
           <h4 class="step-title" data-translate="contact-process-4">测试验证</h4>
@@ -257,8 +257,8 @@
         </div>
       </div>
 
-      <div style="text-align:center;margin-top:40px;" class="reveal">
-        <a class="btn primary" href="contact.html" data-nav style="padding:14px 32px;" data-translate="contact-start-project">开始您的项目</a>
+      <div class="reveal text-center mt-10">
+        <a class="btn primary btn-lg" href="contact.html" data-nav data-translate="contact-start-project">开始您的项目</a>
       </div>
     </div>
   </section>

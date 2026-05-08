@@ -92,6 +92,9 @@
       'home-case-3-badge-1': '文旅',
       'home-case-3-badge-2': '娱乐',
       'home-case-3-badge-3': '运营',
+      'home-cta-title': '准备好优化您的船队了吗？',
+      'home-cta-desc': '联系太一海洋，获取专业的智能船舶解决方案与技术支持。',
+      'btn-contact-us': '立即咨询',
 
       // --- 产品页 (Products) ---
       'products-subtitle': '中小功率电动外机',
@@ -720,6 +723,9 @@
       'home-case-3-badge-1': 'Tourism',
       'home-case-3-badge-2': 'Entertainment',
       'home-case-3-badge-3': 'Operations',
+      'home-cta-title': 'Ready to Optimize Your Fleet?',
+      'home-cta-desc': 'Contact Taiyi Marine for professional intelligent ship solutions and technical support.',
+      'btn-contact-us': 'Contact Us',
 
       // --- Products ---
       'products-subtitle': 'Small-Medium Power Outboards',

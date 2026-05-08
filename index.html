@@ -4,6 +4,9 @@
   <meta charset="UTF-8"/>
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>太一海洋 · 智能船舶系统</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Manrope:wght@400;600;700;800&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="assets/styles.css"/>
 </head>
 <body>
@@ -13,10 +16,10 @@
   <div class="wrap">
     <a class="brand" href="index.html" data-nav>
       <span>
-        <img src="assets/images/logo.png" alt="TAIYI MARINE" style="width: auto; height: 30px; object-fit: cover;">
-      </span> 
+        <img src="assets/images/logo.png" alt="TAIYI MARINE" class="brand-logo-img">
+      </span>
       <span>
-        <img src="assets/images/company-name.png" alt="TAIYI MARINE" style="width: auto; height: 30px; object-fit: cover;">
+        <img src="assets/images/company-name.png" alt="TAIYI MARINE" class="brand-logo-img">
       </span>
     </a>
 
@@ -37,7 +40,7 @@
         <span>/</span>
         <button class="lang-btn" data-lang="en">EN</button>
       </div>
-      <!-- 移动端菜单按钮 (新增) -->
+      <!-- 移动端菜单按钮 -->
       <button class="burger" aria-label="Toggle Menu">
         <svg viewBox="0 0 24 24" width="24" height="24" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"><line x1="3" y1="12" x2="21" y2="12"></line><line x1="3" y1="6" x2="21" y2="6"></line><line x1="3" y1="18" x2="21" y2="18"></line></svg>
       </button>
@@ -60,46 +63,22 @@
 <main id="main">
   <!-- Hero区域 -->
   <section class="hero">
-    <div class="container grid">
-      <div class="reveal">
-        <div class="kicker" data-translate="home-kicker">智能船舶系统</div>
-        <h1 class="h1" data-translate="home-title">驰骋蓝海，智享自由</h1>
-        <p class="lead" data-translate="home-subtitle">
-          全栈自研智能船舶系统：电动推进、船型优化、CFD/EFD分析、AI设计优化、自动驾驶与无人船平台。
-          为您提供从产品到技术再到解决方案的一体化专业服务。
-        </p>
+    <div class="hero__bg">
+      <img src="assets/images/index.jpg" alt="智能船舶" data-translate-alt="home-hero-img-alt">
+    </div>
+    <div class="hero__content">
+      <div>
+        <span class="hero__kicker" data-translate="home-kicker">智能船舶系统</span>
+        <h1 data-translate="home-title">驰骋蓝海，智享自由</h1>
         <div class="actions">
           <a class="btn primary" href="products.html" data-nav data-translate="btn-view-products">查看产品</a>
           <a class="btn ghost" href="contact.html" data-nav data-translate="btn-get-quote">获取方案</a>
         </div>
-        <div class="pills">
-          <span class="pill" data-translate="home-pill-1">电动外机 0.4-10kW</span>
-          <span class="pill" data-translate="home-pill-2">螺旋桨设计/制造</span>
-          <span class="pill" data-translate="home-pill-3">自动驾驶/无人船</span>
-          <span class="pill" data-translate="home-pill-4">CFD + EFD 实验能力</span>
-        </div>
       </div>
-
-      <aside class="heroCard reveal">
-        <div class="stats">
-          <div class="stat">
-            <b data-translate="home-stat-1-title">工业4.0</b>
-            <span data-translate="home-stat-1-desc">智能制造与海洋实训平台一体化解决方案</span>
-          </div>
-          <div class="stat">
-            <b data-translate="home-stat-2-title">CFD / EFD</b>
-            <span data-translate="home-stat-2-desc">船型、阻力、操纵性专业性能评估</span>
-          </div>
-          <div class="stat">
-            <b data-translate="home-stat-3-title">智能控制</b>
-            <span data-translate="home-stat-3-desc">先进控制系统与可扩展集成架构</span>
-          </div>
-          <div class="stat">
-            <b data-translate="home-stat-4-title">案例落地</b>
-            <span data-translate="home-stat-4-desc">文旅船、改造升级、螺旋桨优化成功案例</span>
-          </div>
-        </div>
-      </aside>
+      <p class="hero__desc" data-translate="home-subtitle">
+        全栈自研智能船舶系统：电动推进、船型优化、CFD/EFD分析、AI设计优化、自动驾驶与无人船平台。
+        为您提供从产品到技术再到解决方案的一体化专业服务。
+      </p>
     </div>
   </section>
 
@@ -107,12 +86,16 @@
   <section class="section">
     <div class="container">
       <div class="header reveal">
+        <span class="kicker" data-translate="home-capabilities-kicker">Core Capabilities</span>
         <h2 data-translate="home-capabilities">核心能力</h2>
         <p data-translate="home-capabilities-desc">我们提供从产品设计到系统集成的全方位智能船舶解决方案</p>
       </div>
 
       <div class="grid3">
         <div class="card reveal">
+          <div class="card-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="3" width="20" height="14" rx="2" ry="2"></rect><line x1="8" y1="21" x2="16" y2="21"></line><line x1="12" y1="17" x2="12" y2="21"></line></svg>
+          </div>
           <h3 data-translate="home-cap-1">产品与供应链</h3>
           <p data-translate="home-cap-1-desc">电动外机、智能船艇与系统集成；提供从选型、适配到交付的一站式服务。</p>
           <div class="badges">
@@ -122,6 +105,9 @@
           </div>
         </div>
         <div class="card reveal">
+          <div class="card-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2.69l5.66 5.66a8 8 0 1 1-11.31 0z"></path></svg>
+          </div>
           <h3 data-translate="home-cap-2">船体/螺旋桨设计</h3>
           <p data-translate="home-cap-2-desc">船型优化、螺旋桨设计/制造、性能评估；CFD + EFD 支撑可量化指标。</p>
           <div class="badges">
@@ -131,6 +117,9 @@
           </div>
         </div>
         <div class="card reveal">
+          <div class="card-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="12 2 2 7 12 12 22 7 12 2"></polygon><polyline points="2 17 12 22 22 17"></polyline><polyline points="2 12 12 17 22 12"></polyline></svg>
+          </div>
           <h3 data-translate="home-cap-3">自动驾驶与无人船</h3>
           <p data-translate="home-cap-3-desc">导航、路径规划、多传感器融合、远程运维；适用于巡检、测绘、教学展示。</p>
           <div class="badges">
@@ -143,97 +132,99 @@
     </div>
   </section>
 
-  <!-- 产品概览 (已修复按钮位置) -->
+  <!-- 产品概览 -->
   <section class="section alt">
     <div class="container">
       <div class="header reveal">
+        <span class="kicker" data-translate="home-products-kicker">Product Overview</span>
         <h2 data-translate="home-products">产品概览</h2>
-        <p data-translate="home-products-desc">覆盖不同功率和应用场景的智能船舶产品线</p>
+        <p data-translate="home-products-desc">覆盖电动推进、文旅船艇与设计服务的完整产品线</p>
       </div>
 
-      <div class="card reveal" data-tabs>
-        <div class="tabs">
-          <div class="tab active" data-translate="products-tab-outboard">电动外机</div>
-          <div class="tab" data-translate="products-tab-tourism">文旅/娱乐</div>
-          <div class="tab" data-translate="products-tab-design">设计服务</div>
+      <div class="product-showcase" data-tabs>
+        <!-- 左侧：Tab 按钮 -->
+        <div class="product-showcase-nav reveal">
+          <div class="product-tab tab active" data-translate="products-tab-outboard">
+            <span class="tab-number">01</span>
+            <span>电动外机</span>
+            <svg viewBox="0 0 24 24"><path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"></path></svg>
+          </div>
+          <div class="product-tab tab" data-translate="products-tab-tourism">
+            <span class="tab-number">02</span>
+            <span>文旅/娱乐</span>
+            <svg viewBox="0 0 24 24"><path d="M2 21l2-2 16-6-6-16-16 6-2 2"></path><path d="M13 13l5 5"></path></svg>
+          </div>
+          <div class="product-tab tab" data-translate="products-tab-design">
+            <span class="tab-number">03</span>
+            <span>设计服务</span>
+            <svg viewBox="0 0 24 24"><path d="M2 12h20"></path><path d="M2 12c0-5.5 4.5-10 10-10s10 4.5 10 10"></path><path d="M2 12c0 5.5 4.5 10 10 10s10-4.5 10-10"></path></svg>
+          </div>
         </div>
 
-        <div class="tabpanels">
+        <!-- 右侧：内容面板 -->
+        <div class="tabpanels product-showcase-panels reveal">
           <!-- 面板 1：电动外机 -->
           <div class="panel active">
-            <div class="grid2">
-              <div style="display: flex; flex-direction: column;">
-                <h3 style="margin-top:0;color:var(--blue-900);" data-translate="products-outboard-title">中小功率电动外机</h3>
-                <p style="color:var(--text-muted);line-height:1.8;" data-translate="products-outboard-desc">
-                  覆盖 0.4-10kW 功率范围，支持 48V/96V 电压，适用于休闲船、工作艇、改造升级等多种场景。
-                </p>
-                <div class="badges" style="margin-bottom: 24px;">
-                  <span class="badge" data-translate="products-outboard-badge-1">低噪</span>
-                  <span class="badge" data-translate="products-outboard-badge-2">易维护</span>
-                  <span class="badge" data-translate="products-outboard-badge-3">高效率</span>
-                </div>
-                <!-- 修复：按钮移至此处，符合图片描述 -->
-                <div style="margin-top: auto;">
-                  <a class="btn primary" href="products.html" data-nav data-translate="btn-view-products">查看产品</a>
-                </div>
+            <div class="product-panel-inner">
+              <div class="product-panel-media">
+                <img src="assets/images/中小功率船舶电动舷外机.jpg" alt="电动舷外机">
               </div>
-              <div class="media">
-                <div class="media-placeholder">
-                  <img src="assets/images/中小功率船舶电动舷外机.jpg" 
-                       alt="电动舷外机" style="width: 100%; height: 100%; object-fit: center;">
-                </div>
+              <div class="product-panel-content">
+                <h3 data-translate="products-outboard-title">中小功率电动外机</h3>
+                <p data-translate="products-outboard-desc">覆盖 0.4-10kW 功率范围，支持 48V/96V 电压，适用于休闲船、工作艇、改造升级等多种场景。</p>
+                <ul class="product-panel-features">
+                  <li data-translate="products-outboard-badge-1"><span class="feature-check"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"></polyline></svg></span>低噪</li>
+                  <li data-translate="products-outboard-badge-2"><span class="feature-check"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"></polyline></svg></span>易维护</li>
+                  <li data-translate="products-outboard-badge-3"><span class="feature-check"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"></polyline></svg></span>高效率</li>
+                </ul>
+                <a class="product-panel-link" href="products.html" data-nav data-translate="btn-view-products">
+                  查看产品
+                  <svg viewBox="0 0 24 24"><line x1="7" y1="17" x2="17" y2="7"></line><polyline points="7 7 17 7 17 17"></polyline></svg>
+                </a>
               </div>
             </div>
           </div>
 
           <!-- 面板 2：文旅船 -->
           <div class="panel">
-            <div class="grid2">
-              <div style="display: flex; flex-direction: column;">
-                <h3 style="margin-top:0;color:var(--blue-900);" data-translate="products-tourism-title">文旅船艇解决方案</h3>
-                <p style="color:var(--text-muted);line-height:1.8;" data-translate="products-tourism-desc">
-                  低功率慢行文旅船：续航长、稳定性强；高速娱乐船：体验感强，支持智能驾驶辅助。
-                </p>
-                <div class="badges" style="margin-bottom: 24px;">
-                  <span class="badge" data-translate="products-tourism-badge-1">文旅运营</span>
-                  <span class="badge" data-translate="products-tourism-badge-2">体验场景</span>
-                  <span class="badge" data-translate="products-tourism-badge-3">系统集成</span>
-                </div>
-                <div style="margin-top: auto;">
-                   <a class="btn primary" href="products.html" data-nav data-translate="btn-view-products">查看产品</a>
-                </div>
+            <div class="product-panel-inner">
+              <div class="product-panel-media">
+                <img src="assets/images/智能文旅船.png" alt="文旅船">
               </div>
-              <div class="media">
-                <div class="media-placeholder">
-                  <img src="assets/images/智能文旅船.png" 
-                       alt="文旅船" style="width: 100%; height: 100%; object-fit: cover;">
-                </div>
+              <div class="product-panel-content">
+                <h3 data-translate="products-tourism-title">文旅船艇解决方案</h3>
+                <p data-translate="products-tourism-desc">低功率慢行文旅船：续航长、稳定性强；高速娱乐船：体验感强，支持智能驾驶辅助。</p>
+                <ul class="product-panel-features">
+                  <li data-translate="products-tourism-badge-1"><span class="feature-check"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"></polyline></svg></span>文旅运营</li>
+                  <li data-translate="products-tourism-badge-2"><span class="feature-check"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"></polyline></svg></span>体验场景</li>
+                  <li data-translate="products-tourism-badge-3"><span class="feature-check"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"></polyline></svg></span>系统集成</li>
+                </ul>
+                <a class="product-panel-link" href="products.html" data-nav data-translate="btn-view-products">
+                  查看产品
+                  <svg viewBox="0 0 24 24"><line x1="7" y1="17" x2="17" y2="7"></line><polyline points="7 7 17 7 17 17"></polyline></svg>
+                </a>
               </div>
             </div>
           </div>
 
           <!-- 面板 3：设计服务 -->
           <div class="panel">
-            <div class="grid2">
-              <div style="display: flex; flex-direction: column;">
-                <h3 style="margin-top:0;color:var(--blue-900);" data-translate="products-design-title">船体优化 & 螺旋桨设计</h3>
-                <p style="color:var(--text-muted);line-height:1.8;" data-translate="products-design-desc">
-                  输入船体图纸/性能需求，输出螺旋桨与三电配置方案；支持 CFD、EFD 验证闭环。
-                </p>
-                <div class="badges" style="margin-bottom: 24px;">
-                  <span class="badge" data-translate="products-design-badge-1">阻力/兴波</span>
-                  <span class="badge" data-translate="products-design-badge-2">操纵性</span>
-                  <span class="badge" data-translate="products-design-badge-3">效率提升</span>
-                </div>
-                 <div style="margin-top: auto;">
-                   <a class="btn primary" href="cases.html" data-nav data-translate="btn-view-cases">查看案例</a>
-                </div>
+            <div class="product-panel-inner">
+              <div class="product-panel-media">
+                <img src="assets/images/设计服务流程图.png" alt="设计服务">
               </div>
-              <div class="media">
-                <div class="media-placeholder">
-                  <img src="assets/images/设计服务流程图.png" 
-                       alt="设计服务" style="width: 100%; height: 100%; object-fit: cover;">
-                </div>
+              <div class="product-panel-content">
+                <h3 data-translate="products-design-title">船体优化 &amp; 螺旋桨设计</h3>
+                <p data-translate="products-design-desc">输入船体图纸/性能需求，输出螺旋桨与三电配置方案；支持 CFD、EFD 验证闭环。</p>
+                <ul class="product-panel-features">
+                  <li data-translate="products-design-badge-1"><span class="feature-check"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"></polyline></svg></span>阻力/兴波</li>
+                  <li data-translate="products-design-badge-2"><span class="feature-check"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"></polyline></svg></span>操纵性</li>
+                  <li data-translate="products-design-badge-3"><span class="feature-check"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"></polyline></svg></span>效率提升</li>
+                </ul>
+                <a class="product-panel-link" href="cases.html" data-nav data-translate="btn-view-cases">
+                  查看案例
+                  <svg viewBox="0 0 24 24"><line x1="7" y1="17" x2="17" y2="7"></line><polyline points="7 7 17 7 17 17"></polyline></svg>
+                </a>
               </div>
             </div>
           </div>
@@ -246,27 +237,51 @@
   <section class="section">
     <div class="container">
       <div class="header reveal">
+        <span class="kicker" data-translate="home-tech-kicker">Technical Strength</span>
         <h2 data-translate="home-tech">技术优势</h2>
         <p data-translate="home-tech-desc">基于先进计算与实验方法的智能船舶技术</p>
       </div>
 
       <div class="grid3">
-        <div class="card reveal">
+        <div class="card-glow reveal">
+          <div class="card-icon" style="background: rgba(0, 61, 124, 0.06); color: var(--primary);">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><polygon points="16.24 7.76 14.12 14.12 7.76 16.24 9.88 9.88 16.24 7.76"></polygon></svg>
+          </div>
           <h3 data-translate="home-tech-1">性能评估系统</h3>
           <p data-translate="home-tech-1-desc">船舶运动学、动力学求解，操纵性/耐波性/稳定性/快速性综合评估。</p>
+          <div style="margin-top: var(--space-6);">
+            <a href="technology.html" data-nav style="color: var(--primary); font-weight: 700; display: inline-flex; align-items: center; gap: var(--space-2); font-size: 11px; letter-spacing: 0.05em; text-transform: uppercase;">
+              <span data-translate="btn-learn-more">查看技术详情</span>
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg>
+            </a>
+          </div>
         </div>
-        <div class="card reveal">
+        <div class="card-glow reveal">
+          <div class="card-icon" style="background: rgba(0, 61, 124, 0.06); color: var(--primary);">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M2 12h20"></path><path d="M2 12c0-5.5 4.5-10 10-10s10 4.5 10 10"></path><path d="M2 12c0 5.5 4.5 10 10 10s10-4.5 10-10"></path></svg>
+          </div>
           <h3 data-translate="home-tech-2">CFD + EFD 融合</h3>
           <p data-translate="home-tech-2-desc">计算与实验互证，提升预测可信度；支撑外形、桨叶、控制面协同优化。</p>
+          <div style="margin-top: var(--space-6);">
+            <a href="technology.html" data-nav style="color: var(--primary); font-weight: 700; display: inline-flex; align-items: center; gap: var(--space-2); font-size: 11px; letter-spacing: 0.05em; text-transform: uppercase;">
+              <span data-translate="btn-learn-more">查看技术详情</span>
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg>
+            </a>
+          </div>
         </div>
-        <div class="card reveal">
+        <div class="card-glow reveal">
+          <div class="card-icon" style="background: rgba(0, 61, 124, 0.06); color: var(--primary);">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2a10 10 0 1 0 10 10H12V2z"></path><path d="M12 2a10 10 0 0 1 10 10"></path><path d="M12 12L2.5 8.5"></path></svg>
+          </div>
           <h3 data-translate="home-tech-3">AI 优化设计</h3>
           <p data-translate="home-tech-3-desc">参数化建模 + 智能学习，快速探索设计空间，加速从方案到落地。</p>
+          <div style="margin-top: var(--space-6);">
+            <a href="technology.html" data-nav style="color: var(--primary); font-weight: 700; display: inline-flex; align-items: center; gap: var(--space-2); font-size: 11px; letter-spacing: 0.05em; text-transform: uppercase;">
+              <span data-translate="btn-learn-more">查看技术详情</span>
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg>
+            </a>
+          </div>
         </div>
-      </div>
-
-      <div style="margin-top:32px; text-align: center;" class="reveal">
-        <a class="btn ghost" href="technology.html" data-nav data-translate="btn-learn-more">查看技术详情</a>
       </div>
     </div>
   </section>
@@ -275,38 +290,61 @@
   <section class="section alt">
     <div class="container">
       <div class="header reveal">
+        <span class="kicker" data-translate="home-cases-kicker">Success Stories</span>
         <h2 data-translate="home-cases">成功案例</h2>
         <p data-translate="home-cases-desc">我们为各类客户提供专业的智能船舶解决方案</p>
       </div>
 
-      <div class="grid3">
-        <a class="card reveal" href="cases.html" data-nav>
-          <h3 data-translate="home-case-1">螺旋桨设计服务</h3>
-          <p data-translate="home-case-1-desc">设计、制造、测试对比，支持匹配不同船体与动力系统。</p>
-          <div class="badges">
-            <span class="badge" data-translate="home-case-1-badge-1">设计</span>
-            <span class="badge" data-translate="home-case-1-badge-2">制造</span>
-            <span class="badge" data-translate="home-case-1-badge-3">测试</span>
+      <div class="solution-grid reveal">
+        <div class="solution-cell">
+          <div>
+            <div class="solution-cell__num">01</div>
+            <h3 class="solution-cell__title" data-translate="home-case-1">螺旋桨设计服务</h3>
+            <p class="solution-cell__desc" data-translate="home-case-1-desc">设计、制造、测试对比，支持匹配不同船体与动力系统。</p>
+            <div class="badges">
+              <span class="badge" data-translate="home-case-1-badge-1">设计</span>
+              <span class="badge" data-translate="home-case-1-badge-2">制造</span>
+              <span class="badge" data-translate="home-case-1-badge-3">测试</span>
+            </div>
           </div>
-        </a>
-        <a class="card reveal" href="cases.html" data-nav>
-          <h3 data-translate="home-case-2">船艇升级/改造</h3>
-          <p data-translate="home-case-2-desc">1kW~300kW 方案升级，适配品牌船型与电推进系统改造。</p>
-          <div class="badges">
-            <span class="badge" data-translate="home-case-2-badge-1">升级</span>
-            <span class="badge" data-translate="home-case-2-badge-2">改造</span>
-            <span class="badge" data-translate="home-case-2-badge-3">优化</span>
+          <a class="solution-cell__link" href="cases.html" data-nav>
+            <span data-translate="btn-learn-more">查看详情</span>
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg>
+          </a>
+        </div>
+        <div class="solution-cell solution-cell--image">
+          <img src="assets/images/中小功率船舶电动舷外机.jpg" alt="螺旋桨设计">
+        </div>
+        <div class="solution-cell solution-cell--image">
+          <img src="assets/images/智能文旅船.png" alt="船艇升级">
+        </div>
+        <div class="solution-cell">
+          <div>
+            <div class="solution-cell__num">02</div>
+            <h3 class="solution-cell__title" data-translate="home-case-2">船艇升级/改造</h3>
+            <p class="solution-cell__desc" data-translate="home-case-2-desc">1kW~300kW 方案升级，适配品牌船型与电推进系统改造。</p>
+            <div class="badges">
+              <span class="badge" data-translate="home-case-2-badge-1">升级</span>
+              <span class="badge" data-translate="home-case-2-badge-2">改造</span>
+              <span class="badge" data-translate="home-case-2-badge-3">优化</span>
+            </div>
           </div>
-        </a>
-        <a class="card reveal" href="cases.html" data-nav>
-          <h3 data-translate="home-case-3">水上自行车</h3>
-          <p data-translate="home-case-3-desc">操控灵敏、姿态稳定、户外水域可控；适配文旅运营场景。</p>
-          <div class="badges">
-            <span class="badge" data-translate="home-case-3-badge-1">文旅</span>
-            <span class="badge" data-translate="home-case-3-badge-2">娱乐</span>
-            <span class="badge" data-translate="home-case-3-badge-3">运营</span>
-          </div>
-        </a>
+          <a class="solution-cell__link" href="cases.html" data-nav>
+            <span data-translate="btn-learn-more">查看详情</span>
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg>
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA区域 -->
+  <section class="cta-section">
+    <div class="container">
+      <div class="cta-card reveal">
+        <h2 data-translate="home-cta-title">准备好优化您的船队了吗？</h2>
+        <p data-translate="home-cta-desc">联系太一海洋，获取专业的智能船舶解决方案与技术支持。</p>
+        <a class="btn" href="contact.html" data-nav data-translate="btn-contact-us">立即咨询</a>
       </div>
     </div>
   </section>
