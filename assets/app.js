@@ -198,6 +198,21 @@
       'products-cap-4-badge-1': '技术培训',
       'products-cap-4-badge-2': '定期维护',
       'products-cap-4-badge-3': '远程支持',
+      'products-cap-hero': '核心能力<br>与特性',
+      'products-cap-block-1-label': '引擎可靠性',
+      'products-cap-block-1-title': '故障安全架构',
+      'products-cap-block-1-desc': '每套T系列单元均配备冗余冷却回路和双绕组定子配置，确保即使在关键硬件故障事件中也能维持推进能力。',
+      'products-cap-block-2-label': '智能控制',
+      'products-cap-block-2-title': '神经自适应控制',
+      'products-cap-block-2-desc': '我们专有的AI控制器通过实时分析船体振动和水阻力来调整扭矩矢量，效率提升高达18%。',
+      'products-cap-icon-1-title': '模块化接口',
+      'products-cap-icon-1-desc': '即插即用架构，可快速集成至现有桥接系统和第三方传感器。',
+      'products-cap-icon-2-title': '精密制造',
+      'products-cap-icon-2-desc': '每个部件均采用航空航天级铝合金和钛合金CNC精密加工，确保极致耐用性。',
+      'products-cap-icon-3-title': '环保生态',
+      'products-cap-icon-3-desc': '100%可回收设计，全生命周期零润滑油泄漏，守护海洋生态系统。',
+      'products-cap-icon-4-title': '开放SDK',
+      'products-cap-icon-4-desc': '为船队管理者和自主软件开发者提供全面的软件开发工具包。',
       'products-features': '产品特点',
       'products-features-desc': '我们的产品在设计、性能和可靠性方面的核心优势',
       'products-feature-1': '高效节能',
@@ -811,6 +826,21 @@
       'products-cap-4-badge-1': 'Tech Training',
       'products-cap-4-badge-2': 'Regular Maint',
       'products-cap-4-badge-3': 'Remote Support',
+      'products-cap-hero': 'Core<br>Capabilities',
+      'products-cap-block-1-label': 'Engine Reliability',
+      'products-cap-block-1-title': 'Fail-Safe Architecture',
+      'products-cap-block-1-desc': 'Every T-Series unit features redundant cooling circuits and dual-winding stator configurations to ensure propulsion even in critical hardware failure events.',
+      'products-cap-block-2-label': 'Intelligence',
+      'products-cap-block-2-title': 'Neural Adaptive Control',
+      'products-cap-block-2-desc': 'Our proprietary AI controllers adjust torque vectors in real-time by analyzing hull vibration and water resistance, increasing efficiency by up to 18%.',
+      'products-cap-icon-1-title': 'Modular Interface',
+      'products-cap-icon-1-desc': 'Plug-and-play architecture for rapid integration with existing bridge systems and 3rd party sensors.',
+      'products-cap-icon-2-title': 'Machined Precision',
+      'products-cap-icon-2-desc': 'Each component is CNC-milled from aerospace-grade aluminum and titanium alloys for ultimate durability.',
+      'products-cap-icon-3-title': 'Eco Stewardship',
+      'products-cap-icon-3-desc': 'Designed for 100% recyclability at end-of-life, with zero oil lubricants leaking into the marine ecosystem.',
+      'products-cap-icon-4-title': 'Open SDK',
+      'products-cap-icon-4-desc': 'Comprehensive software development kit for fleet managers and autonomous software developers.',
       'products-features': 'Features',
       'products-features-desc': 'Core advantages in design, performance and reliability',
       'products-feature-1': 'High Efficiency',
@@ -1283,8 +1313,14 @@
     const langBtns = document.querySelectorAll('.lang-btn');
     const translatables = document.querySelectorAll('[data-translate]');
     const LANGUAGE_STORAGE_KEY = 'taiyi-lang';
+    let currentLang = 'zh';
+    const LANG_MAP = { zh: 'zh-CN', en: 'en' };
 
     function getCurrentLanguage() {
+      const saved = loadSavedLanguage();
+      if (saved) return saved;
+      const browserLang = (navigator.language || '').toLowerCase();
+      if (browserLang.startsWith('en')) return 'en';
       const activeBtn = document.querySelector('.lang-btn.active');
       if (activeBtn && activeBtn.dataset.lang) {
         return activeBtn.dataset.lang;
@@ -1309,9 +1345,10 @@
       }
       return null;
     }
-    
+
     function setLanguage(lang) {
       const safeLang = translations[lang] ? lang : 'zh';
+      currentLang = safeLang;
 
       langBtns.forEach(btn => {
         if(btn.dataset.lang === safeLang) btn.classList.add('active');
@@ -1319,23 +1356,23 @@
       });
 
       saveLanguage(safeLang);
-      document.documentElement.lang = safeLang === 'en' ? 'en' : 'zh-CN';
-      
+      document.documentElement.lang = LANG_MAP[safeLang] || 'zh-CN';
+
       translatables.forEach(el => {
         const key = el.dataset.translate;
-        if(translations[safeLang] && translations[safeLang][key]) {
-          if(el.tagName === 'INPUT' || el.tagName === 'TEXTAREA' || el.tagName === 'SELECT') {
-             // 处理 placeholder
-             if(el.hasAttribute('placeholder')) {
-                el.placeholder = translations[safeLang][key];
-             }
-             // 处理 select 的 default option
-             if(el.tagName === 'SELECT' && el.options.length > 0 && el.options[0].disabled) {
-                el.options[0].textContent = translations[safeLang][key];
-             }
-          } else {
-            el.textContent = translations[safeLang][key];
-          }
+        const text = translations[safeLang]?.[key] || translations['zh']?.[key];
+        if (!text) return;
+        if(el.tagName === 'INPUT' || el.tagName === 'TEXTAREA' || el.tagName === 'SELECT') {
+           // 处理 placeholder
+           if(el.hasAttribute('placeholder')) {
+              el.placeholder = text;
+           }
+           // 处理 select 的 default option
+           if(el.tagName === 'SELECT' && el.options.length > 0 && el.options[0].disabled) {
+              el.options[0].textContent = text;
+           }
+        } else {
+          el.textContent = text;
         }
       });
 
@@ -1425,7 +1462,7 @@
       document.querySelectorAll('[data-product-modal]').forEach(card => {
         card.addEventListener('click', (e) => {
           const productId = card.getAttribute('data-product-modal');
-          const productData = getProductData(productId, getCurrentLanguage());
+          const productData = getProductData(productId, currentLang);
 
           // 填充模态框内容
           modalBody.innerHTML = productData;

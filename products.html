@@ -5,18 +5,726 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>产品中心 · 深圳太一海洋智能科技有限公司</title>
   <link rel="stylesheet" href="assets/styles.css"/>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Manrope:wght@400;600;700;800&display=swap" rel="stylesheet">
+
+  <style id="products-page-style">
+    /* ========== 工业极简主义 - 产品页专用样式 ========== */
+
+    :root {
+      --mono-primary: #003d7c;
+      --mono-primary-container: #0054a6;
+      --mono-surface: #f7f9fb;
+      --mono-surface-low: #f2f4f6;
+      --mono-surface-lowest: #ffffff;
+      --mono-on-surface: #191c1e;
+      --mono-on-surface-variant: #424751;
+      --mono-outline-variant: #c2c6d3;
+      --mono-radius: 0.375rem;
+    }
+
+    /* 页面字体覆盖 */
+    .products-page {
+      font-family: "Inter", "PingFang SC", "Microsoft YaHei", "Helvetica Neue", Arial, sans-serif;
+    }
+
+    .products-page h1,
+    .products-page h2,
+    .products-page h3,
+    .products-page h4 {
+      font-family: "Manrope", "PingFang SC", "Microsoft YaHei", "Helvetica Neue", Arial, sans-serif;
+    }
+
+    /* --- Hero 区域 --- */
+    .products-hero {
+      position: relative;
+      width: 100%;
+      min-height: 70vh;
+      display: flex;
+      align-items: flex-end;
+      overflow: hidden;
+      background: var(--mono-surface);
+    }
+    .products-hero__bg {
+      position: absolute;
+      inset: 0;
+      z-index: 0;
+    }
+    .products-hero__bg img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      filter: grayscale(30%);
+    }
+    .products-hero__bg::after {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(to top, rgba(0, 61, 124, 0.85) 0%, rgba(0, 61, 124, 0.3) 50%, rgba(0, 61, 124, 0.1) 100%);
+    }
+    .products-hero__content {
+      position: relative;
+      z-index: 1;
+      max-width: 1280px;
+      margin: 0 auto;
+      padding: 120px 48px 80px;
+      width: 100%;
+      display: grid;
+      grid-template-columns: 2fr 1fr;
+      gap: 64px;
+      align-items: end;
+    }
+    .products-hero__kicker {
+      font-family: "Inter", "PingFang SC", sans-serif;
+      font-size: 12px;
+      font-weight: 600;
+      letter-spacing: 0.3em;
+      text-transform: uppercase;
+      color: rgba(255,255,255,0.7);
+      margin-bottom: 16px;
+      display: block;
+    }
+    .products-hero__title {
+      font-size: clamp(2.5rem, 5vw, 4.5rem);
+      font-weight: 800;
+      color: #fff;
+      line-height: 1.05;
+      letter-spacing: -0.02em;
+      margin: 0;
+    }
+    .products-hero__desc {
+      font-size: 16px;
+      line-height: 1.7;
+      color: rgba(255,255,255,0.85);
+      border-left: 2px solid rgba(255,255,255,0.5);
+      padding-left: 28px;
+      margin: 0;
+    }
+
+    @media (max-width: 768px) {
+      .products-hero__content {
+        grid-template-columns: 1fr;
+        padding: 80px 24px 48px;
+        gap: 32px;
+      }
+      .products-hero__desc {
+        padding-left: 16px;
+      }
+    }
+
+    /* --- 区块标题系统 --- */
+    .mono-header {
+      margin-bottom: 64px;
+      text-align: left;
+    }
+    .mono-header--center {
+      text-align: center;
+    }
+    .mono-header__kicker {
+      font-family: "Inter", "PingFang SC", sans-serif;
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 0.25em;
+      text-transform: uppercase;
+      color: var(--mono-primary);
+      margin-bottom: 16px;
+      display: block;
+    }
+    .mono-header__title {
+      font-size: clamp(1.75rem, 3vw, 2.5rem);
+      font-weight: 700;
+      color: var(--mono-primary);
+      line-height: 1.15;
+      letter-spacing: -0.02em;
+      margin: 0 0 12px;
+    }
+    .mono-header__desc {
+      font-size: 16px;
+      color: var(--mono-on-surface-variant);
+      line-height: 1.7;
+      margin: 0;
+      max-width: 560px;
+    }
+    .mono-header--center .mono-header__desc {
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    /* --- Section 间距 --- */
+    .mono-section {
+      padding: 100px 0;
+    }
+    .mono-section--surface {
+      background: var(--mono-surface);
+    }
+    .mono-section--surface-low {
+      background: var(--mono-surface-low);
+    }
+
+    @media (max-width: 768px) {
+      .mono-section {
+        padding: 64px 0;
+      }
+    }
+
+    /* --- 产品展示网格 (Thruster Series) --- */
+    .thruster-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 48px;
+    }
+    @media (max-width: 1024px) {
+      .thruster-grid {
+        grid-template-columns: 1fr;
+        gap: 56px;
+      }
+    }
+
+    .thruster-item {
+      display: flex;
+      flex-direction: column;
+      gap: 24px;
+    }
+    .thruster-item__img {
+      width: 100%;
+      aspect-ratio: 1;
+      background: var(--mono-surface-lowest);
+      overflow: hidden;
+      position: relative;
+    }
+    .thruster-item__img img {
+      width: 100%;
+      height: 100%;
+      object-fit: contain;
+      padding: 24px;
+      filter: grayscale(100%);
+      transition: filter 0.7s ease, transform 0.7s ease;
+    }
+    .thruster-item:hover .thruster-item__img img {
+      filter: grayscale(0%);
+      transform: scale(1.03);
+    }
+    .thruster-item__tags {
+      display: flex;
+      gap: 8px;
+      flex-wrap: wrap;
+      margin-bottom: 4px;
+    }
+    .thruster-item__tag {
+      font-size: 10px;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      color: var(--mono-primary);
+      border: 1px solid var(--mono-primary);
+      padding: 4px 10px;
+      line-height: 1;
+    }
+    .thruster-item__title {
+      font-size: 22px;
+      font-weight: 700;
+      color: var(--mono-primary);
+      margin: 0 0 8px;
+      letter-spacing: -0.01em;
+    }
+    .thruster-item__desc {
+      font-size: 14px;
+      line-height: 1.7;
+      color: var(--mono-on-surface-variant);
+      margin: 0;
+    }
+
+    /* --- 技术规格表 --- */
+    .specs-table-wrap {
+      overflow-x: auto;
+    }
+    .specs-table {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 16px;
+    }
+    .specs-table thead tr {
+      border-bottom: 2px solid var(--mono-primary);
+      text-align: center;
+    }
+    .specs-table th {
+      padding: 20px 16px;
+      font-family: "Manrope", "PingFang SC", sans-serif;
+      font-size: 12px;
+      font-weight: 800;
+      text-transform: uppercase;
+      letter-spacing: 0.15em;
+      color: var(--mono-primary);
+      white-space: nowrap;
+    }
+    .specs-table tbody tr {
+      border-bottom: 1px solid rgba(194, 198, 211, 0.3);
+      transition: background 0.3s ease;
+    }
+    .specs-table tbody tr:hover {
+      background: var(--mono-surface-lowest);
+    }
+    .specs-table td {
+      padding: 24px 16px;
+      color: var(--mono-on-surface-variant);
+      text-align: center;
+    }
+    .specs-table td:first-child {
+      font-weight: 700;
+      color: var(--mono-primary);
+      text-align: center;
+    }
+
+    @media (max-width: 768px) {
+      .specs-table th,
+      .specs-table td {
+        padding: 14px 10px;
+        font-size: 13px;
+      }
+    }
+
+    /* --- 整船解决方案 (Checkerboard) --- */
+    .solution-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 1px;
+      background: rgba(194, 198, 211, 0.2);
+      border: 1px solid rgba(194, 198, 211, 0.2);
+    }
+    @media (max-width: 768px) {
+      .solution-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    .solution-cell {
+      background: var(--mono-surface-lowest);
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      min-height: 420px;
+      padding: 56px;
+      position: relative;
+    }
+    .solution-cell--image {
+      padding: 0;
+      min-height: 420px;
+      overflow: hidden;
+    }
+    .solution-cell--image img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform 0.8s ease;
+    }
+    .solution-cell--image:hover img {
+      transform: scale(1.04);
+    }
+    .solution-cell__num {
+      font-size: 64px;
+      font-weight: 800;
+      color: rgba(0, 61, 124, 0.08);
+      line-height: 1;
+      margin-bottom: 12px;
+      user-select: none;
+    }
+    .solution-cell__title {
+      font-size: 26px;
+      font-weight: 700;
+      color: var(--mono-primary);
+      margin: 0 0 16px;
+      letter-spacing: -0.01em;
+    }
+    .solution-cell__desc {
+      font-size: 15px;
+      line-height: 1.7;
+      color: var(--mono-on-surface-variant);
+      max-width: 420px;
+      margin: 0;
+    }
+    .solution-cell__link {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      font-size: 11px;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.15em;
+      color: var(--mono-primary);
+      margin-top: 32px;
+      cursor: pointer;
+      transition: gap 0.3s ease;
+    }
+    .solution-cell__link:hover {
+      gap: 16px;
+    }
+    .solution-cell__link svg {
+      width: 16px;
+      height: 16px;
+    }
+
+    @media (max-width: 1024px) {
+      .solution-cell {
+        padding: 36px;
+        min-height: 340px;
+      }
+      .solution-cell__num {
+        font-size: 48px;
+      }
+      .solution-cell__title {
+        font-size: 22px;
+      }
+    }
+
+    /* --- 应用场景网格 (Scenario Grid) --- */
+    .scenario-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 4px;
+    }
+    @media (max-width: 1024px) {
+      .scenario-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+    }
+    @media (max-width: 640px) {
+      .scenario-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    .scenario-card {
+      position: relative;
+      overflow: hidden;
+      height: 360px;
+      background: var(--mono-surface-low);
+      cursor: default;
+    }
+    .scenario-card__bg {
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(135deg, #e8ecf1 0%, #d5dce4 100%);
+    }
+    .scenario-card__overlay {
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(to top, rgba(0, 61, 124, 0.88) 0%, rgba(0, 61, 124, 0.4) 40%, rgba(0, 61, 124, 0.1) 100%);
+      transition: background 0.5s ease;
+    }
+    .scenario-card:hover .scenario-card__overlay {
+      background: linear-gradient(to top, rgba(0, 61, 124, 0.92) 0%, rgba(0, 61, 124, 0.5) 50%, rgba(0, 61, 124, 0.15) 100%);
+    }
+    .scenario-card__content {
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      padding: 32px;
+      z-index: 2;
+    }
+    .scenario-card__title {
+      font-size: 20px;
+      font-weight: 700;
+      color: #fff;
+      margin: 0 0 8px;
+      letter-spacing: -0.01em;
+    }
+    .scenario-card__desc {
+      font-size: 13px;
+      line-height: 1.6;
+      color: rgba(255,255,255,0.8);
+      margin: 0 0 14px;
+      max-width: 320px;
+    }
+    .scenario-card__tags {
+      display: flex;
+      gap: 6px;
+      flex-wrap: wrap;
+    }
+    .scenario-card__tag {
+      font-size: 10px;
+      font-weight: 600;
+      letter-spacing: 0.05em;
+      text-transform: uppercase;
+      color: rgba(255,255,255,0.9);
+      border: 1px solid rgba(255,255,255,0.35);
+      padding: 3px 8px;
+      line-height: 1;
+    }
+
+    /* --- 产品能力 (Capabilities) --- */
+    .cap-layout {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 80px;
+    }
+    @media (max-width: 1024px) {
+      .cap-layout {
+        grid-template-columns: 1fr;
+        gap: 56px;
+      }
+    }
+
+    .cap-hero__title {
+      font-size: clamp(2.5rem, 4vw, 3.5rem);
+      font-weight: 800;
+      color: var(--mono-primary);
+      line-height: 1.05;
+      letter-spacing: -0.03em;
+      margin: 0 0 48px;
+    }
+    .cap-block {
+      margin-bottom: 48px;
+    }
+    .cap-block:last-child {
+      margin-bottom: 0;
+    }
+    .cap-block__label {
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--mono-primary);
+      margin-bottom: 12px;
+      display: block;
+    }
+    .cap-block__title {
+      font-size: 22px;
+      font-weight: 700;
+      color: var(--mono-primary);
+      margin: 0 0 12px;
+    }
+    .cap-block__desc {
+      font-size: 15px;
+      line-height: 1.7;
+      color: var(--mono-on-surface-variant);
+      margin: 0;
+      max-width: 480px;
+    }
+
+    .cap-features {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 40px;
+    }
+    @media (max-width: 640px) {
+      .cap-features {
+        grid-template-columns: 1fr;
+      }
+    }
+    .cap-feature {
+      display: flex;
+      flex-direction: column;
+      gap: 14px;
+    }
+    .cap-feature__icon {
+      width: 40px;
+      height: 40px;
+      color: var(--mono-primary);
+    }
+    .cap-feature__title {
+      font-size: 17px;
+      font-weight: 700;
+      color: var(--mono-primary);
+      margin: 0;
+    }
+    .cap-feature__desc {
+      font-size: 13px;
+      line-height: 1.7;
+      color: var(--mono-on-surface-variant);
+      margin: 0;
+    }
+
+    /* --- 产品特点 (Feature Cards) --- */
+    .feature-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 4px;
+    }
+    @media (max-width: 768px) {
+      .feature-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+    .feature-card {
+      background: var(--mono-surface-lowest);
+      padding: 48px;
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+      transition: background 0.3s ease;
+    }
+    .feature-card:hover {
+      background: var(--mono-surface-low);
+    }
+    .feature-card__title {
+      font-size: 22px;
+      font-weight: 700;
+      color: var(--mono-primary);
+      margin: 0;
+    }
+    .feature-card__desc {
+      font-size: 15px;
+      line-height: 1.7;
+      color: var(--mono-on-surface-variant);
+      margin: 0;
+      flex-grow: 1;
+    }
+    .feature-card__tags {
+      display: flex;
+      gap: 8px;
+      flex-wrap: wrap;
+      margin-top: 8px;
+    }
+    .feature-card__tag {
+      font-size: 11px;
+      font-weight: 600;
+      color: var(--mono-primary);
+      background: rgba(0, 61, 124, 0.06);
+      padding: 6px 12px;
+      letter-spacing: 0.02em;
+    }
+
+    /* --- Tab 组件优化 --- */
+    [data-tabs] > .tabs {
+      display: flex;
+      gap: 4px;
+      margin-bottom: 40px;
+      border-bottom: 1px solid rgba(194, 198, 211, 0.4);
+      padding-bottom: 0;
+    }
+    [data-tabs] > .tabs .tab {
+      padding: 14px 24px;
+      cursor: pointer;
+      font-family: "Manrope", "PingFang SC", sans-serif;
+      font-size: 13px;
+      font-weight: 700;
+      color: var(--mono-on-surface-variant);
+      letter-spacing: 0.02em;
+      border: none;
+      background: transparent;
+      border-bottom: 2px solid transparent;
+      margin-bottom: -1px;
+      transition: all 0.3s ease;
+      white-space: nowrap;
+    }
+    [data-tabs] > .tabs .tab:hover {
+      color: var(--mono-primary);
+    }
+    [data-tabs] > .tabs .tab.active {
+      color: var(--mono-primary);
+      border-bottom-color: var(--mono-primary);
+    }
+    [data-tabs] > .tabpanels .panel {
+      display: none;
+    }
+    [data-tabs] > .tabpanels .panel.active {
+      display: block;
+      animation: fadeIn 0.5s ease-out;
+    }
+
+    .mono-panel-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 48px;
+      align-items: center;
+    }
+    @media (max-width: 768px) {
+      .mono-panel-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+    .mono-panel__title {
+      font-size: 24px;
+      font-weight: 700;
+      color: var(--mono-primary);
+      margin: 0 0 16px;
+    }
+    .mono-panel__desc {
+      font-size: 15px;
+      line-height: 1.7;
+      color: var(--mono-on-surface-variant);
+      margin: 0 0 24px;
+    }
+    .mono-panel__tags {
+      display: flex;
+      gap: 8px;
+      flex-wrap: wrap;
+    }
+    .mono-panel__tag {
+      font-size: 11px;
+      font-weight: 600;
+      color: var(--mono-primary);
+      background: rgba(0, 61, 124, 0.06);
+      padding: 6px 12px;
+      letter-spacing: 0.02em;
+    }
+    .mono-panel__media {
+      width: 100%;
+      height: 320px;
+      background: var(--mono-surface-low);
+      overflow: hidden;
+    }
+    .mono-panel__media img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform 0.5s ease;
+    }
+    .mono-panel__media:hover img {
+      transform: scale(1.03);
+    }
+
+    /* --- CTA 区域 --- */
+    .mono-cta {
+      text-align: center;
+      padding-top: 40px;
+      margin-top: 40px;
+      border-top: 1px solid rgba(194, 198, 211, 0.3);
+    }
+    .mono-cta .btn.primary {
+      background: var(--mono-primary);
+      border-radius: var(--mono-radius);
+      font-family: "Manrope", "PingFang SC", sans-serif;
+      font-weight: 700;
+      font-size: 13px;
+      letter-spacing: 0.05em;
+      text-transform: uppercase;
+      padding: 14px 36px;
+      box-shadow: none;
+      transition: all 0.3s ease;
+    }
+    .mono-cta .btn.primary:hover {
+      background: var(--mono-primary-container);
+      transform: translateY(-1px);
+      box-shadow: 0 10px 30px rgba(0, 61, 124, 0.15);
+    }
+
+    /* --- 响应式容器 --- */
+    .mono-container {
+      max-width: 1280px;
+      margin: 0 auto;
+      padding: 0 48px;
+    }
+    @media (max-width: 768px) {
+      .mono-container {
+        padding: 0 24px;
+      }
+    }
+  </style>
 </head>
-<body>
+<body class="products-page">
 
 <!-- 导航栏 -->
 <header class="nav">
   <div class="wrap">
     <a class="brand" href="index.html">
       <span>
-        <img src="assets/images/logo.png" alt="TAIYI MARINE" style="width: auto; height: 30px; object-fit: cover;">
-      </span> 
+        <img src="assets/images/logo.png" alt="TAIYI MARINE" class="brand-logo-img">
+      </span>
       <span>
-        <img src="assets/images/company-name.png" alt="TAIYI MARINE" style="width: auto; height: 30px; object-fit: cover;">
+        <img src="assets/images/company-name.png" alt="TAIYI MARINE" class="brand-logo-img">
       </span>
     </a>
 
@@ -31,13 +739,11 @@
     </nav>
 
     <div class="navcta">
-      <!-- 语言切换按钮 -->
       <div class="lang-switcher">
          <button class="lang-btn active" data-lang="zh">中文</button>
          <span>/</span>
          <button class="lang-btn" data-lang="en">EN</button>
       </div>
-      <!-- 移动端菜单按钮 (新增) -->
       <button class="burger" aria-label="Toggle Menu">
         <svg viewBox="0 0 24 24" width="24" height="24" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"><line x1="3" y1="12" x2="21" y2="12"></line><line x1="3" y1="6" x2="21" y2="6"></line><line x1="3" y1="18" x2="21" y2="18"></line></svg>
       </button>
@@ -58,171 +764,185 @@
 </header>
 
 <main id="main">
-  <!-- 顶部横幅 -->
-  <div class="top-page-image">
-    <img src="assets/images/products-banner.jpg" 
-         alt="Products Center">
-  </div>
-
-  <!-- 规格参数表 -->
-  <section class="section alt">
-    <div class="container">
-      <div class="header reveal">
-        <h2 data-translate="products-subtitle">中小功率电动外机</h2>
-        <p data-translate="products-desc">覆盖不同功率和应用场景的专业电动推进解决方案</p>
+  <!-- Hero 区域 -->
+  <section class="products-hero">
+    <div class="products-hero__bg">
+      <img src="assets/images/products-banner.jpg" alt="Products Center">
+    </div>
+    <div class="products-hero__content">
+      <div>
+        <span class="products-hero__kicker" data-translate="products-hero-kicker">Engineered Precision</span>
+        <h1 class="products-hero__title" data-translate="products-hero-title">精密驱动<br>智领海洋</h1>
       </div>
-
-      <table class="table reveal" aria-label="Electric Outboard Specifications">
-        <thead>
-          <tr>
-            <th data-translate="products-th-model">型号</th>
-            <th data-translate="products-th-power">功率</th>
-            <th data-translate="products-th-voltage">电压</th>
-            <th data-translate="products-th-battery">电池配置</th>
-            <th data-translate="products-th-scenario">适用场景</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr>
-            <td>T-2</td>
-            <td>1kW</td>
-            <td>48V</td>
-            <td data-translate="products-bat-t2">1.2kWh 内置</td>
-            <td data-translate="products-t2">低速文旅/皮划艇/小艇</td>
-          </tr>
-          <tr>
-            <td>T-5</td>
-            <td>3kW</td>
-            <td>48V</td>
-            <td data-translate="products-bat-t5">4.8kWh 外接</td>
-            <td data-translate="products-t5">中速文旅/小型工作艇</td>
-          </tr>
-          <tr>
-            <td>T-10</td>
-            <td>6kW</td>
-            <td>96V</td>
-            <td data-translate="products-bat-t10">7.2kWh 外接</td>
-            <td data-translate="products-t10">高速/载荷更大船型</td>
-          </tr>
-          <tr>
-            <td>T-15</td>
-            <td>10kW</td>
-            <td>96V</td>
-            <td data-translate="products-bat-t15">12kWh 外接</td>
-            <td data-translate="products-t15">更高性能/改造升级</td>
-          </tr>
-          <tr>
-            <td>T-25</td>
-            <td>15kW</td>
-            <td>144V</td>
-            <td data-translate="products-bat-t25">18kWh 外接</td>
-            <td data-translate="products-t25">中型工作船/高速艇</td>
-          </tr>
-          <tr>
-            <td>T-40</td>
-            <td>25kW</td>
-            <td>144V</td>
-            <td data-translate="products-bat-t40">24kWh 外接</td>
-            <td data-translate="products-t40">商用船/大型文旅船</td>
-          </tr>
-        </tbody>
-      </table>
+      <p class="products-hero__desc" data-translate="products-hero-desc">
+        T系列代表船舶工业设计的巅峰。电动效率与重型动力的无边界融合，覆盖从文旅观光到无人作业的完整场景。
+      </p>
     </div>
   </section>
 
-  <!-- 新增：高性能推进器系列 -->
-  <section class="section">
-    <div class="container">
-      <div class="header reveal">
-        <h2 data-translate="products-showcase-1-title">高性能推进器系列</h2>
-        <p data-translate="products-showcase-1-desc">全栈自研的先进推进解决方案，满足各类船舶需求</p>
+  <!-- 高性能推进器系列 -->
+  <section class="mono-section">
+    <div class="mono-container">
+      <div class="mono-header reveal">
+        <span class="mono-header__kicker" data-translate="products-showcase-1-kicker">Product Catalog</span>
+        <h2 class="mono-header__title" data-translate="products-showcase-1-title">高性能推进器系列</h2>
+        <p class="mono-header__desc" data-translate="products-showcase-1-desc">全栈自研的先进推进解决方案，满足各类船舶需求</p>
       </div>
 
-      <div class="grid3 product-showcase-grid">
-        <!-- 产品1：电动喷泵推进器卡片 -->
-        <div class="card reveal product-click-card" data-product-modal="water-jet">
-          <div class="card-img-container product-image-box">
+      <div class="thruster-grid">
+        <div class="thruster-item reveal product-click-card" data-product-modal="water-jet">
+          <div class="thruster-item__img">
             <img src="assets/images/电动喷泵推进器.png" alt="电动喷泵推进器">
           </div>
-          <span class="card-click-hint" data-translate="products-showcase-click-hint">点击查看详情</span>
-          <h3 data-translate="products-showcase-card-1-title">电动喷泵推进器</h3>
-          <p data-translate="products-showcase-card-1-desc">全栈自研的高性能船舶用电动喷水推进器，最大推力3kW-44kgf，适合高速无人水面载具</p>
-          <div class="badges">
-            <span class="badge" data-translate="products-showcase-card-1-badge-1">零排放</span>
-            <span class="badge" data-translate="products-showcase-card-1-badge-2">浅水航行</span>
-            <span class="badge" data-translate="products-showcase-card-1-badge-3">高速响应</span>
+          <div>
+            <div class="thruster-item__tags">
+              <span class="thruster-item__tag" data-translate="products-showcase-card-1-badge-1">零排放</span>
+              <span class="thruster-item__tag" data-translate="products-showcase-card-1-badge-2">浅水航行</span>
+              <span class="thruster-item__tag" data-translate="products-showcase-card-1-badge-3">高速响应</span>
+            </div>
+            <h3 class="thruster-item__title" data-translate="products-showcase-card-1-title">电动喷泵推进器</h3>
+            <p class="thruster-item__desc" data-translate="products-showcase-card-1-desc">全栈自研的高性能船舶用电动喷水推进器，最大推力3kW-44kgf，适合高速无人水面载具</p>
           </div>
         </div>
 
-        <!-- 产品2：电动直翼桨推进器卡片 -->
-        <div class="card reveal product-click-card" data-product-modal="voith-schneider">
-          <div class="card-img-container product-image-box">
+        <div class="thruster-item reveal product-click-card" data-product-modal="voith-schneider">
+          <div class="thruster-item__img">
             <img src="assets/images/电动直翼桨推进器.png" alt="电动直翼桨推进器">
           </div>
-          <span class="card-click-hint" data-translate="products-showcase-click-hint">点击查看详情</span>
-          <h3 data-translate="products-showcase-card-2-title">电动直翼桨推进器</h3>
-          <p data-translate="products-showcase-card-2-desc">代表现代船舶推进与操纵技术的完美结合，360°全方向推力控制，支持动态定位</p>
-          <div class="badges">
-            <span class="badge" data-translate="products-showcase-card-2-badge-1">360°控制</span>
-            <span class="badge" data-translate="products-showcase-card-2-badge-2">高精度</span>
-            <span class="badge" data-translate="products-showcase-card-2-badge-3">动态定位</span>
+          <div>
+            <div class="thruster-item__tags">
+              <span class="thruster-item__tag" data-translate="products-showcase-card-2-badge-1">360°控制</span>
+              <span class="thruster-item__tag" data-translate="products-showcase-card-2-badge-2">高精度</span>
+              <span class="thruster-item__tag" data-translate="products-showcase-card-2-badge-3">动态定位</span>
+            </div>
+            <h3 class="thruster-item__title" data-translate="products-showcase-card-2-title">电动直翼桨推进器</h3>
+            <p class="thruster-item__desc" data-translate="products-showcase-card-2-desc">代表现代船舶推进与操纵技术的完美结合，360°全方向推力控制，支持动态定位</p>
           </div>
         </div>
 
-        <!-- 产品3：推进器套餐卡片 -->
-        <div class="card reveal product-click-card" data-product-modal="thruster-packages">
-          <div class="card-img-container product-image-box">
+        <div class="thruster-item reveal product-click-card" data-product-modal="thruster-packages">
+          <div class="thruster-item__img">
             <img src="assets/images/电动舷外机推进器.png" alt="电动舷外机推进器">
           </div>
-          <span class="card-click-hint" data-translate="products-showcase-click-hint">点击查看详情</span>
-          <h3 data-translate="products-showcase-card-3-title">电动舷外机推进器</h3>
-          <p data-translate="products-showcase-card-3-desc">专为中小型船艇量身定制的高效动力系统，覆盖 T-2 至 T-15，兼顾轻量化、无线操控与静谧零排放航行体验</p>
-          <div class="badges">
-            <span class="badge" data-translate="products-showcase-card-3-badge-1">轻量防腐</span>
-            <span class="badge" data-translate="products-showcase-card-3-badge-2">无线操控</span>
-            <span class="badge" data-translate="products-showcase-card-3-badge-3">静音零排</span>
+          <div>
+            <div class="thruster-item__tags">
+              <span class="thruster-item__tag" data-translate="products-showcase-card-3-badge-1">轻量防腐</span>
+              <span class="thruster-item__tag" data-translate="products-showcase-card-3-badge-2">无线操控</span>
+              <span class="thruster-item__tag" data-translate="products-showcase-card-3-badge-3">静音零排</span>
+            </div>
+            <h3 class="thruster-item__title" data-translate="products-showcase-card-3-title">电动舷外机推进器</h3>
+            <p class="thruster-item__desc" data-translate="products-showcase-card-3-desc">专为中小型船艇量身定制的高效动力系统，覆盖 T-2 至 T-15，兼顾轻量化、无线操控与静谧零排放航行体验</p>
           </div>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- 新增：整船与系统解决方案 -->
-  <section class="section alt">
-    <div class="container">
-      <div class="header reveal">
-        <h2 data-translate="products-showcase-2-title">整船与系统解决方案</h2>
-        <p data-translate="products-showcase-2-desc">一体化智能船舶平台，创新设计与尖端技术融合</p>
+  <!-- 技术规格表 -->
+  <section class="mono-section mono-section--surface">
+    <div class="mono-container">
+      <div class="mono-header reveal">
+        <span class="mono-header__kicker" data-translate="products-specs-kicker">Technical Specifications</span>
+        <h2 class="mono-header__title" data-translate="products-subtitle">中小功率电动外机</h2>
+        <p class="mono-header__desc" data-translate="products-desc">覆盖不同功率和应用场景的专业电动推进解决方案</p>
       </div>
 
-      <div class="grid2 product-showcase-grid">
-        <!-- 产品4：文旅观光船卡片 -->
-        <div class="card reveal product-click-card" data-product-modal="tourist-boat">
-          <div class="card-img-container product-image-box">
-            <img src="assets/images/⽂旅观光船.png" alt="文旅观光船">
+      <div class="specs-table-wrap reveal">
+        <table class="specs-table" aria-label="Electric Outboard Specifications">
+          <thead>
+            <tr>
+              <th data-translate="products-th-model">型号</th>
+              <th data-translate="products-th-power">功率</th>
+              <th data-translate="products-th-voltage">电压</th>
+              <th data-translate="products-th-battery">电池配置</th>
+              <th data-translate="products-th-scenario">适用场景</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>T-2</td>
+              <td>1kW</td>
+              <td>48V</td>
+              <td data-translate="products-bat-t2">1.2kWh 内置</td>
+              <td data-translate="products-t2">低速文旅/皮划艇/小艇</td>
+            </tr>
+            <tr>
+              <td>T-5</td>
+              <td>3kW</td>
+              <td>48V</td>
+              <td data-translate="products-bat-t5">4.8kWh 外接</td>
+              <td data-translate="products-t5">中速文旅/小型工作艇</td>
+            </tr>
+            <tr>
+              <td>T-10</td>
+              <td>6kW</td>
+              <td>96V</td>
+              <td data-translate="products-bat-t10">7.2kWh 外接</td>
+              <td data-translate="products-t10">高速/载荷更大船型</td>
+            </tr>
+            <tr>
+              <td>T-15</td>
+              <td>10kW</td>
+              <td>96V</td>
+              <td data-translate="products-bat-t15">12kWh 外接</td>
+              <td data-translate="products-t15">更高性能/改造升级</td>
+            </tr>
+            <tr>
+              <td>T-25</td>
+              <td>15kW</td>
+              <td>144V</td>
+              <td data-translate="products-bat-t25">18kWh 外接</td>
+              <td data-translate="products-t25">中型工作船/高速艇</td>
+            </tr>
+            <tr>
+              <td>T-40</td>
+              <td>25kW</td>
+              <td>144V</td>
+              <td data-translate="products-bat-t40">24kWh 外接</td>
+              <td data-translate="products-t40">商用船/大型文旅船</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </section>
+
+  <!-- 整船与系统解决方案 -->
+  <section class="mono-section">
+    <div class="mono-container">
+      <div class="mono-header reveal">
+        <span class="mono-header__kicker" data-translate="products-showcase-2-kicker">Integrated Solutions</span>
+        <h2 class="mono-header__title" data-translate="products-showcase-2-title">整船与系统解决方案</h2>
+        <p class="mono-header__desc" data-translate="products-showcase-2-desc">一体化智能船舶平台，创新设计与尖端技术融合</p>
+      </div>
+
+      <div class="solution-grid reveal">
+        <div class="solution-cell">
+          <div>
+            <div class="solution-cell__num">01</div>
+            <h3 class="solution-cell__title" data-translate="products-showcase-card-4-title">文旅观光船</h3>
+            <p class="solution-cell__desc" data-translate="products-showcase-card-4-desc">将尖端科技与水上美学完美融合，专为现代绿色智能景区量身定制，打造极致舒适的水上观光体验</p>
           </div>
-          <span class="card-click-hint" data-translate="products-showcase-click-hint">点击查看详情</span>
-          <h3 data-translate="products-showcase-card-4-title">文旅观光船</h3>
-          <p data-translate="products-showcase-card-4-desc">将尖端科技与水上美学完美融合，专为现代绿色智能景区量身定制，打造极致舒适的水上观光体验</p>
-          <div class="badges">
-            <span class="badge" data-translate="products-showcase-card-4-badge-1">轻量化设计</span>
-            <span class="badge" data-translate="products-showcase-card-4-badge-2">智能操控</span>
-            <span class="badge" data-translate="products-showcase-card-4-badge-3">零排放</span>
+          <div class="solution-cell__link" data-product-modal="tourist-boat">
+            <span data-translate="products-explore-solution">探索方案</span>
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg>
           </div>
         </div>
-
-        <!-- 产品5：无人船卡片 -->
-        <div class="card reveal product-click-card" data-product-modal="unmanned-ship">
-          <div class="card-img-container product-image-box">
-            <img src="assets/images/无人船.png" alt="无人船">
+        <div class="solution-cell solution-cell--image product-click-card" data-product-modal="tourist-boat">
+          <img src="assets/images/⽂旅观光船.png" alt="文旅观光船">
+        </div>
+        <div class="solution-cell solution-cell--image product-click-card" data-product-modal="unmanned-ship">
+          <img src="assets/images/无人船.png" alt="无人船">
+        </div>
+        <div class="solution-cell">
+          <div>
+            <div class="solution-cell__num">02</div>
+            <h3 class="solution-cell__title" data-translate="products-showcase-card-5-title">无人船</h3>
+            <p class="solution-cell__desc" data-translate="products-showcase-card-5-desc">高精度智控底座与全景交互船载终端，深度集成AI视觉与大模型辅助决策，实现全自动水上作业</p>
           </div>
-          <span class="card-click-hint" data-translate="products-showcase-click-hint">点击查看详情</span>
-          <h3 data-translate="products-showcase-card-5-title">无人船</h3>
-          <p data-translate="products-showcase-card-5-desc">高精度智控底座与全景交互船载终端，深度集成AI视觉与大模型辅助决策，实现全自动水上作业</p>
-          <div class="badges">
-            <span class="badge" data-translate="products-showcase-card-5-badge-1">自主航行</span>
-            <span class="badge" data-translate="products-showcase-card-5-badge-2">AI视觉</span>
-            <span class="badge" data-translate="products-showcase-card-5-badge-3">远程操控</span>
+          <div class="solution-cell__link" data-product-modal="unmanned-ship">
+            <span data-translate="products-explore-solution">探索方案</span>
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg>
           </div>
         </div>
       </div>
@@ -230,81 +950,104 @@
   </section>
 
   <!-- 应用场景 -->
-  <section class="section">
-    <div class="container">
-      <div class="header reveal">
-        <h2 data-translate="products-applications">应用场景</h2>
-        <p data-translate="products-app-desc">满足不同行业和用途的专业船舶电动化需求</p>
+  <section class="mono-section mono-section--surface">
+    <div class="mono-container">
+      <div class="mono-header mono-header--center reveal">
+        <span class="mono-header__kicker" data-translate="products-scenarios-kicker">Operational Scenarios</span>
+        <h2 class="mono-header__title" data-translate="products-applications">应用场景</h2>
+        <p class="mono-header__desc" data-translate="products-app-desc">满足不同行业和用途的专业船舶电动化需求</p>
       </div>
 
-      <div class="grid3">
-        <div class="card reveal">
-          <h3 data-translate="products-app-1">文旅运营船</h3>
-          <p data-translate="products-app-1-desc">低噪音、低维护、续航友好；适用于景区定线观光与体验项目。</p>
-          <div class="badges">
-            <span class="badge" data-translate="products-app-1-badge-1">低噪音</span>
-            <span class="badge" data-translate="products-app-1-badge-2">长续航</span>
-            <span class="badge" data-translate="products-app-1-badge-3">易维护</span>
+      <div class="scenario-grid">
+        <div class="scenario-card reveal">
+          <div class="scenario-card__bg"></div>
+          <div class="scenario-card__overlay"></div>
+          <div class="scenario-card__content">
+            <h3 class="scenario-card__title" data-translate="products-app-1">文旅运营船</h3>
+            <p class="scenario-card__desc" data-translate="products-app-1-desc">低噪音、低维护、续航友好；适用于景区定线观光与体验项目。</p>
+            <div class="scenario-card__tags">
+              <span class="scenario-card__tag" data-translate="products-app-1-badge-1">低噪音</span>
+              <span class="scenario-card__tag" data-translate="products-app-1-badge-2">长续航</span>
+              <span class="scenario-card__tag" data-translate="products-app-1-badge-3">易维护</span>
+            </div>
           </div>
         </div>
-        <div class="card reveal">
-          <h3 data-translate="products-app-2">工作艇/巡检艇</h3>
-          <p data-translate="products-app-2-desc">稳定可靠，适配多种载荷；支持系统集成与远程监控。</p>
-          <div class="badges">
-            <span class="badge" data-translate="products-app-2-badge-1">稳定可靠</span>
-            <span class="badge" data-translate="products-app-2-badge-2">可扩展</span>
-            <span class="badge" data-translate="products-app-2-badge-3">远程监控</span>
+        <div class="scenario-card reveal">
+          <div class="scenario-card__bg"></div>
+          <div class="scenario-card__overlay"></div>
+          <div class="scenario-card__content">
+            <h3 class="scenario-card__title" data-translate="products-app-2">工作艇/巡检艇</h3>
+            <p class="scenario-card__desc" data-translate="products-app-2-desc">稳定可靠，适配多种载荷；支持系统集成与远程监控。</p>
+            <div class="scenario-card__tags">
+              <span class="scenario-card__tag" data-translate="products-app-2-badge-1">稳定可靠</span>
+              <span class="scenario-card__tag" data-translate="products-app-2-badge-2">可扩展</span>
+              <span class="scenario-card__tag" data-translate="products-app-2-badge-3">远程监控</span>
+            </div>
           </div>
         </div>
-        <div class="card reveal">
-          <h3 data-translate="products-app-3">电动帆船改造</h3>
-          <p data-translate="products-app-3-desc">从 1kW 到更高功率升级方案；匹配三电与螺旋桨优化。</p>
-          <div class="badges">
-            <span class="badge" data-translate="products-app-3-badge-1">升级改造</span>
-            <span class="badge" data-translate="products-app-3-badge-2">系统优化</span>
-            <span class="badge" data-translate="products-app-3-badge-3">性能提升</span>
+        <div class="scenario-card reveal">
+          <div class="scenario-card__bg"></div>
+          <div class="scenario-card__overlay"></div>
+          <div class="scenario-card__content">
+            <h3 class="scenario-card__title" data-translate="products-app-3">电动帆船改造</h3>
+            <p class="scenario-card__desc" data-translate="products-app-3-desc">从 1kW 到更高功率升级方案；匹配三电与螺旋桨优化。</p>
+            <div class="scenario-card__tags">
+              <span class="scenario-card__tag" data-translate="products-app-3-badge-1">升级改造</span>
+              <span class="scenario-card__tag" data-translate="products-app-3-badge-2">系统优化</span>
+              <span class="scenario-card__tag" data-translate="products-app-3-badge-3">性能提升</span>
+            </div>
           </div>
         </div>
-      </div>
-
-      <div class="grid3" style="margin-top:32px">
-        <div class="card reveal">
-          <h3 data-translate="products-app-4">冲锋艇/快艇</h3>
-          <p data-translate="products-app-4-desc">高功率输出，快速响应，适用于应急救援和高速巡逻。</p>
-          <div class="badges">
-            <span class="badge" data-translate="products-app-4-badge-1">高功率</span>
-            <span class="badge" data-translate="products-app-4-badge-2">快速响应</span>
+        <div class="scenario-card reveal">
+          <div class="scenario-card__bg"></div>
+          <div class="scenario-card__overlay"></div>
+          <div class="scenario-card__content">
+            <h3 class="scenario-card__title" data-translate="products-app-4">冲锋艇/快艇</h3>
+            <p class="scenario-card__desc" data-translate="products-app-4-desc">高功率输出，快速响应，适用于应急救援和高速巡逻。</p>
+            <div class="scenario-card__tags">
+              <span class="scenario-card__tag" data-translate="products-app-4-badge-1">高功率</span>
+              <span class="scenario-card__tag" data-translate="products-app-4-badge-2">快速响应</span>
+            </div>
           </div>
         </div>
-        <div class="card reveal">
-          <h3 data-translate="products-app-5">双体文旅船</h3>
-          <p data-translate="products-app-5-desc">稳定平台，宽敞空间，适合水上观光和休闲娱乐。</p>
-          <div class="badges">
-            <span class="badge" data-translate="products-app-5-badge-1">稳定性</span>
-            <span class="badge" data-translate="products-app-5-badge-2">舒适性</span>
+        <div class="scenario-card reveal">
+          <div class="scenario-card__bg"></div>
+          <div class="scenario-card__overlay"></div>
+          <div class="scenario-card__content">
+            <h3 class="scenario-card__title" data-translate="products-app-5">双体文旅船</h3>
+            <p class="scenario-card__desc" data-translate="products-app-5-desc">稳定平台，宽敞空间，适合水上观光和休闲娱乐。</p>
+            <div class="scenario-card__tags">
+              <span class="scenario-card__tag" data-translate="products-app-5-badge-1">稳定性</span>
+              <span class="scenario-card__tag" data-translate="products-app-5-badge-2">舒适性</span>
+            </div>
           </div>
         </div>
-        <div class="card reveal">
-          <h3 data-translate="products-app-6">科研监测船</h3>
-          <p data-translate="products-app-6-desc">低干扰动力系统，支持精密仪器搭载和数据采集。</p>
-          <div class="badges">
-            <span class="badge" data-translate="products-app-6-badge-1">低干扰</span>
-            <span class="badge" data-translate="products-app-6-badge-2">高精度</span>
+        <div class="scenario-card reveal">
+          <div class="scenario-card__bg"></div>
+          <div class="scenario-card__overlay"></div>
+          <div class="scenario-card__content">
+            <h3 class="scenario-card__title" data-translate="products-app-6">科研监测船</h3>
+            <p class="scenario-card__desc" data-translate="products-app-6-desc">低干扰动力系统，支持精密仪器搭载和数据采集。</p>
+            <div class="scenario-card__tags">
+              <span class="scenario-card__tag" data-translate="products-app-6-badge-1">低干扰</span>
+              <span class="scenario-card__tag" data-translate="products-app-6-badge-2">高精度</span>
+            </div>
           </div>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- 产品能力 Tab (已修复按钮位置) -->
-  <section class="section alt">
-    <div class="container">
-      <div class="header reveal">
-        <h2 data-translate="products-capabilities">产品能力</h2>
-        <p data-translate="products-cap-desc">全面的产品支持和服务体系</p>
+  <!-- 产品能力 Tab -->
+  <section class="mono-section mono-section--surface-low">
+    <div class="mono-container">
+      <div class="mono-header reveal">
+        <span class="mono-header__kicker" data-translate="products-cap-kicker">Service & Support</span>
+        <h2 class="mono-header__title" data-translate="products-capabilities">产品能力</h2>
+        <p class="mono-header__desc" data-translate="products-cap-desc">全面的产品支持和服务体系</p>
       </div>
 
-      <div class="card reveal" data-tabs>
+      <div class="reveal" data-tabs>
         <div class="tabs">
           <div class="tab active" data-translate="products-cap-1-tab">选型建议</div>
           <div class="tab" data-translate="products-cap-2-tab">配套电池</div>
@@ -313,96 +1056,83 @@
         </div>
         <div class="tabpanels">
           <div class="panel active">
-            <div class="grid2">
+            <div class="mono-panel-grid">
               <div>
-                <h3 style="margin-top:0;color:var(--blue-900);" data-translate="products-cap-1">专业选型建议</h3>
-                <p style="color:var(--text-muted);line-height:1.8;" data-translate="products-cap-1-desc">
+                <h3 class="mono-panel__title" data-translate="products-cap-1">专业选型建议</h3>
+                <p class="mono-panel__desc" data-translate="products-cap-1-desc">
                   提供从船型、载荷、航速目标出发的专业选型建议：电机功率、桨、控制器、电池容量与线束规范一体化配置。
                 </p>
-                <div class="badges">
-                  <span class="badge" data-translate="products-cap-1-badge-1">船型分析</span>
-                  <span class="badge" data-translate="products-cap-1-badge-2">载荷评估</span>
-                  <span class="badge" data-translate="products-cap-1-badge-3">航速规划</span>
+                <div class="mono-panel__tags">
+                  <span class="mono-panel__tag" data-translate="products-cap-1-badge-1">船型分析</span>
+                  <span class="mono-panel__tag" data-translate="products-cap-1-badge-2">载荷评估</span>
+                  <span class="mono-panel__tag" data-translate="products-cap-1-badge-3">航速规划</span>
                 </div>
               </div>
-              <div class="media">
-                <div class="media-placeholder">
-                  <img src="assets/images/智能文旅船.png" 
-                       alt="Selection Analysis" style="width: 100%; height: 100%; object-fit: cover;">
-                </div>
+              <div class="mono-panel__media">
+                <img src="assets/images/智能文旅船.png" alt="Selection Analysis">
               </div>
             </div>
           </div>
-          
+
           <div class="panel">
-            <div class="grid2">
+            <div class="mono-panel-grid">
               <div>
-                <h3 style="margin-top:0;color:var(--blue-900);" data-translate="products-cap-2">智能电池系统</h3>
-                <p style="color:var(--text-muted);line-height:1.8;" data-translate="products-cap-2-desc">
+                <h3 class="mono-panel__title" data-translate="products-cap-2">智能电池系统</h3>
+                <p class="mono-panel__desc" data-translate="products-cap-2-desc">
                   支持 48V/96V/144V 电池包与外接方案，提供完善的电池管理与安全策略建议（充放电、温控、防水等级等）。
                 </p>
-                <div class="badges">
-                  <span class="badge" data-translate="products-cap-2-badge-1">智能管理</span>
-                  <span class="badge" data-translate="products-cap-2-badge-2">安全保障</span>
-                  <span class="badge" data-translate="products-cap-2-badge-3">长寿命</span>
+                <div class="mono-panel__tags">
+                  <span class="mono-panel__tag" data-translate="products-cap-2-badge-1">智能管理</span>
+                  <span class="mono-panel__tag" data-translate="products-cap-2-badge-2">安全保障</span>
+                  <span class="mono-panel__tag" data-translate="products-cap-2-badge-3">长寿命</span>
                 </div>
               </div>
-              <div class="media">
-                <div class="media-placeholder">
-                  <img src="assets/images/电池.jpg" 
-                       alt="Battery System" style="width: 100%; height: 100%; object-fit: cover;">
-                </div>
+              <div class="mono-panel__media">
+                <img src="assets/images/电池.jpg" alt="Battery System">
               </div>
             </div>
           </div>
-          
+
           <div class="panel">
-            <div class="grid2">
+            <div class="mono-panel-grid">
               <div>
-                <h3 style="margin-top:0;color:var(--blue-900);" data-translate="products-cap-3">一体化系统集成</h3>
-                <p style="color:var(--text-muted);line-height:1.8;" data-translate="products-cap-3-desc">
+                <h3 class="mono-panel__title" data-translate="products-cap-3">一体化系统集成</h3>
+                <p class="mono-panel__desc" data-translate="products-cap-3-desc">
                   支持仪表、控制、传感器、定位与自动驾驶接口集成，面向文旅船、工作艇、无人船提供定制化交付。
                 </p>
-                <div class="badges">
-                  <span class="badge" data-translate="products-cap-3-badge-1">接口标准化</span>
-                  <span class="badge" data-translate="products-cap-3-badge-2">定制开发</span>
-                  <span class="badge" data-translate="products-cap-3-badge-3">系统测试</span>
+                <div class="mono-panel__tags">
+                  <span class="mono-panel__tag" data-translate="products-cap-3-badge-1">接口标准化</span>
+                  <span class="mono-panel__tag" data-translate="products-cap-3-badge-2">定制开发</span>
+                  <span class="mono-panel__tag" data-translate="products-cap-3-badge-3">系统测试</span>
                 </div>
               </div>
-              <div class="media">
-                <div class="media-placeholder">
-                  <img src="https://images.unsplash.com/photo-1518770660439-4636190af475?ixlib=rb-1.2.1&auto=format&fit=crop&w=1000&q=80" 
-                       alt="System Integration" style="width: 100%; height: 100%; object-fit: cover;">
-                </div>
+              <div class="mono-panel__media">
+                <img src="https://images.unsplash.com/photo-1518770660439-4636190af475?ixlib=rb-1.2.1&auto=format&fit=crop&w=1000&q=80" alt="System Integration">
               </div>
             </div>
           </div>
-          
+
           <div class="panel">
-            <div class="grid2">
+            <div class="mono-panel-grid">
               <div>
-                <h3 style="margin-top:0;color:var(--blue-900);" data-translate="products-cap-4">完善售后服务</h3>
-                <p style="color:var(--text-muted);line-height:1.8;" data-translate="products-cap-4-desc">
+                <h3 class="mono-panel__title" data-translate="products-cap-4">完善售后服务</h3>
+                <p class="mono-panel__desc" data-translate="products-cap-4-desc">
                   提供安装指导、操作培训、定期维护和技术支持，确保产品长期稳定运行。
                 </p>
-                <div class="badges">
-                  <span class="badge" data-translate="products-cap-4-badge-1">技术培训</span>
-                  <span class="badge" data-translate="products-cap-4-badge-2">定期维护</span>
-                  <span class="badge" data-translate="products-cap-4-badge-3">远程支持</span>
+                <div class="mono-panel__tags">
+                  <span class="mono-panel__tag" data-translate="products-cap-4-badge-1">技术培训</span>
+                  <span class="mono-panel__tag" data-translate="products-cap-4-badge-2">定期维护</span>
+                  <span class="mono-panel__tag" data-translate="products-cap-4-badge-3">远程支持</span>
                 </div>
               </div>
-              <div class="media">
-                <div class="media-placeholder">
-                  <img src="https://images.unsplash.com/photo-1522071820081-009f0129c71c?ixlib=rb-1.2.1&auto=format&fit=crop&w=1000&q=80" 
-                       alt="Service" style="width: 100%; height: 100%; object-fit: cover;">
-                </div>
+              <div class="mono-panel__media">
+                <img src="https://images.unsplash.com/photo-1522071820081-009f0129c71c?ixlib=rb-1.2.1&auto=format&fit=crop&w=1000&q=80" alt="Service">
               </div>
             </div>
           </div>
         </div>
 
-        <!-- 修复：按钮移至 Card 内部底部，符合图片描述 -->
-        <div style="margin-top:32px; text-align: center; border-top: 1px solid var(--blue-100); padding-top: 24px;">
+        <div class="mono-cta">
           <a class="btn primary" href="contact.html" data-translate="nav-cta">获取方案</a>
         </div>
       </div>
@@ -410,51 +1140,49 @@
   </section>
 
   <!-- 产品特点 -->
-  <section class="section">
-    <div class="container">
-      <div class="header reveal">
-        <h2 data-translate="products-features">产品特点</h2>
-        <p data-translate="products-features-desc">我们的产品在设计、性能和可靠性方面的核心优势</p>
+  <section class="mono-section">
+    <div class="mono-container">
+      <div class="mono-header mono-header--center reveal">
+        <span class="mono-header__kicker" data-translate="products-features-kicker">Core Advantages</span>
+        <h2 class="mono-header__title" data-translate="products-features">产品特点</h2>
+        <p class="mono-header__desc" data-translate="products-features-desc">我们的产品在设计、性能和可靠性方面的核心优势</p>
       </div>
 
-      <div class="grid2">
-        <div class="card reveal">
-          <h3 data-translate="products-feature-1">高效节能</h3>
-          <p data-translate="products-feature-1-desc">采用高效电机和优化控制算法，相比传统燃油动力节能30%以上，运营成本大幅降低。</p>
-          <div class="badges">
-            <span class="badge" data-translate="products-feature-1-badge-1">高效电机</span>
-            <span class="badge" data-translate="products-feature-1-badge-2">智能控制</span>
-            <span class="badge" data-translate="products-feature-1-badge-3">节能30%+</span>
+      <div class="feature-grid reveal">
+        <div class="feature-card">
+          <h3 class="feature-card__title" data-translate="products-feature-1">高效节能</h3>
+          <p class="feature-card__desc" data-translate="products-feature-1-desc">采用高效电机和优化控制算法，相比传统燃油动力节能30%以上，运营成本大幅降低。</p>
+          <div class="feature-card__tags">
+            <span class="feature-card__tag" data-translate="products-feature-1-badge-1">高效电机</span>
+            <span class="feature-card__tag" data-translate="products-feature-1-badge-2">智能控制</span>
+            <span class="feature-card__tag" data-translate="products-feature-1-badge-3">节能30%+</span>
           </div>
         </div>
-        <div class="card reveal">
-          <h3 data-translate="products-feature-2">环保静音</h3>
-          <p data-translate="products-feature-2-desc">零排放，运行噪音低于60分贝，为水域环境和用户体验提供最佳保障。</p>
-          <div class="badges">
-            <span class="badge" data-translate="products-feature-2-badge-1">零排放</span>
-            <span class="badge" data-translate="products-feature-2-badge-2">低噪音</span>
-            <span class="badge" data-translate="products-feature-2-badge-3">环保认证</span>
+        <div class="feature-card">
+          <h3 class="feature-card__title" data-translate="products-feature-2">环保静音</h3>
+          <p class="feature-card__desc" data-translate="products-feature-2-desc">零排放，运行噪音低于60分贝，为水域环境和用户体验提供最佳保障。</p>
+          <div class="feature-card__tags">
+            <span class="feature-card__tag" data-translate="products-feature-2-badge-1">零排放</span>
+            <span class="feature-card__tag" data-translate="products-feature-2-badge-2">低噪音</span>
+            <span class="feature-card__tag" data-translate="products-feature-2-badge-3">环保认证</span>
           </div>
         </div>
-      </div>
-
-      <div class="grid2" style="margin-top:32px">
-        <div class="card reveal">
-          <h3 data-translate="products-feature-3">智能控制</h3>
-          <p data-translate="products-feature-3-desc">集成智能控制系统，支持远程监控、故障诊断和OTA升级，维护简便。</p>
-          <div class="badges">
-            <span class="badge" data-translate="products-feature-3-badge-1">远程监控</span>
-            <span class="badge" data-translate="products-feature-3-badge-2">故障诊断</span>
-            <span class="badge" data-translate="products-feature-3-badge-3">OTA升级</span>
+        <div class="feature-card">
+          <h3 class="feature-card__title" data-translate="products-feature-3">智能控制</h3>
+          <p class="feature-card__desc" data-translate="products-feature-3-desc">集成智能控制系统，支持远程监控、故障诊断和OTA升级，维护简便。</p>
+          <div class="feature-card__tags">
+            <span class="feature-card__tag" data-translate="products-feature-3-badge-1">远程监控</span>
+            <span class="feature-card__tag" data-translate="products-feature-3-badge-2">故障诊断</span>
+            <span class="feature-card__tag" data-translate="products-feature-3-badge-3">OTA升级</span>
           </div>
         </div>
-        <div class="card reveal">
-          <h3 data-translate="products-feature-4">安全可靠</h3>
-          <p data-translate="products-feature-4-desc">多重安全保护机制，IP67防护等级，适应各种恶劣水域环境。</p>
-          <div class="badges">
-            <span class="badge" data-translate="products-feature-4-badge-1">多重保护</span>
-            <span class="badge" data-translate="products-feature-4-badge-2">IP67防护</span>
-            <span class="badge" data-translate="products-feature-4-badge-3">恶劣环境适应</span>
+        <div class="feature-card">
+          <h3 class="feature-card__title" data-translate="products-feature-4">安全可靠</h3>
+          <p class="feature-card__desc" data-translate="products-feature-4-desc">多重安全保护机制，IP67防护等级，适应各种恶劣水域环境。</p>
+          <div class="feature-card__tags">
+            <span class="feature-card__tag" data-translate="products-feature-4-badge-1">多重保护</span>
+            <span class="feature-card__tag" data-translate="products-feature-4-badge-2">IP67防护</span>
+            <span class="feature-card__tag" data-translate="products-feature-4-badge-3">恶劣环境适应</span>
           </div>
         </div>
       </div>
@@ -491,16 +1219,16 @@
 </footer>
 
 <!-- 产品详情模态框 -->
-  <div id="product-modal" class="modal" aria-hidden="true">
-    <div class="modal-overlay" data-close-modal></div>
-    <div class="modal-content">
-      <button class="modal-close" data-close-modal>×</button>
-      <div class="modal-body">
-        <!-- 内容由JavaScript动态填充 -->
-      </div>
+<div id="product-modal" class="modal" aria-hidden="true">
+  <div class="modal-overlay" data-close-modal></div>
+  <div class="modal-content">
+    <button class="modal-close" data-close-modal>×</button>
+    <div class="modal-body">
+      <!-- 内容由JavaScript动态填充 -->
     </div>
   </div>
+</div>
 
-  <script src="assets/app.js"></script>
+<script src="assets/app.js"></script>
 </body>
 </html>
